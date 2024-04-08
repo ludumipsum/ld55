@@ -1,4 +1,15 @@
-[gd_scene format=3 uid="uid://d3i3lnbgey12t"]
+[gd_scene load_steps=3 format=3 uid="uid://d3i3lnbgey12t"]
+
+[sub_resource type="Environment" id="Environment_alh44"]
+tonemap_mode = 2
+tonemap_exposure = 4.15
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_5kiq4"]
 
 [node name="root" type="Node2D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_alh44")
+camera_attributes = SubResource("CameraAttributesPractical_5kiq4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
