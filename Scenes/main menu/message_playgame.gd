@@ -39,7 +39,7 @@ func action():
 	if yes == false:
 		hide_textbox()
 	if yes == true:
-		get_tree().change_scene_to_file("res://the_office.tscn")
+		get_tree().change_scene_to_file("res://Scenes/the_office.tscn")
 		pass
 
 
