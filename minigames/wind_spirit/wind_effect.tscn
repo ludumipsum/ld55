@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8f2qrqxo1kkh"]
+
+[ext_resource type="Texture2D" uid="uid://bwopu63a52m3d" path="res://minigames/wind_spirit/wind.png" id="1_b26mj"]
+[ext_resource type="Script" path="res://minigames/wind_spirit/wind_effect.gd" id="2_awm8b"]
+
+[sub_resource type="Animation" id="Animation_tp21l"]
+resource_name = "blow"
+length = 0.7
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.4, -1.5, -40, -0.4, 8, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.0588235), Color(1, 1, 1, 0.0588235)]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.8, -0.25, 0, 0.1, 0.151869, 0.996682, -0.1, 0, 0.2, 0.0140802, 0, -0.3, 0.0533077, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.7)
+}
+
+[sub_resource type="Animation" id="Animation_i47qd"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ryrl3"]
+_data = {
+"RESET": SubResource("Animation_i47qd"),
+"blow": SubResource("Animation_tp21l")
+}
+
+[node name="WindEffectScene" type="Node2D" node_paths=PackedStringArray("animation")]
+script = ExtResource("2_awm8b")
+animation = NodePath("blow")
+
+[node name="WindSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.996682)
+texture = ExtResource("1_b26mj")
+
+[node name="blow" type="AnimationPlayer" parent="."]
+root_node = NodePath("../WindSprite")
+libraries = {
+"": SubResource("AnimationLibrary_ryrl3")
+}
+
+[connection signal="animation_finished" from="blow" to="." method="_on_blow_animation_finished"]
