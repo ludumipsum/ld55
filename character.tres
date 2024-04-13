@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://crxusjbsed2xp"]
+
+[ext_resource type="Texture2D" uid="uid://b8bqpit8u4tty" path="res://unsorted_assets/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Character.png" id="1_drq13"]
+
+[resource]
+atlas = ExtResource("1_drq13")
+region = Rect2(0, 0, 16, 16)
