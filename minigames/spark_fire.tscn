@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://cavx13nlffv4s"]
+
+[ext_resource type="Script" path="res://minigames/rhythm_cue.gd" id="1_i6nnj"]
+[ext_resource type="Script" path="res://minigames/window_dressing.gd" id="2_isqqd"]
+
+[sub_resource type="GDScript" id="GDScript_o3vep"]
+script/source = "extends Node2D
+
+## The player successfully finished this puzzle
+signal puzzle_finished
+
+func _on_rhythm_cue_puzzle_finished():
+	## Handler for the rhythm queue reporting that the puzzle's done
+	puzzle_finished.emit()
+"
+
+[node name="SparkFire" type="Node2D"]
+script = SubResource("GDScript_o3vep")
+
+[node name="rhythm_cue" type="Node2D" parent="."]
+position = Vector2(160, 110)
+script = ExtResource("1_i6nnj")
+width = 128.0
+height = 64.0
+stroke_width = 12.0
+bpm = 100.0
+fudge_factor = 0.1
+
+[node name="window_dressing" type="Polygon2D" parent="."]
+script = ExtResource("2_isqqd")
+
+[connection signal="puzzle_finished" from="rhythm_cue" to="." method="_on_rhythm_cue_puzzle_finished"]
