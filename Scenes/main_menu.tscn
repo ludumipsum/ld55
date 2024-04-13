@@ -1,8 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgdbrprx1nsra"]
+[gd_scene load_steps=17 format=3 uid="uid://bgdbrprx1nsra"]
 
-[ext_resource type="TileSet" uid="uid://ces2lmlcs0bhd" path="res://office_tile_set.tres" id="1_j7fs1"]
-[ext_resource type="TileSet" uid="uid://cvw8psorbl34n" path="res://office_objects.tres" id="2_1ectw"]
+[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_hw03h"]
+[ext_resource type="TileSet" uid="uid://ces2lmlcs0bhd" path="res://unsorted_assets/Office Tiles/office_tile_set.tres" id="1_j7fs1"]
+[ext_resource type="TileSet" uid="uid://cvw8psorbl34n" path="res://unsorted_assets/Office Tiles/office_objects.tres" id="2_1ectw"]
 [ext_resource type="PackedScene" uid="uid://cgy3g0ln4qwjp" path="res://player.tscn" id="3_wxoi2"]
+[ext_resource type="FontFile" uid="uid://c25dx12ryq4uf" path="res://Fonts/dogicapixel.ttf" id="4_j3vc6"]
+[ext_resource type="FontFile" uid="uid://ce3om1rv7cdjs" path="res://Fonts/dogicapixelbold.ttf" id="6_jeyxg"]
+[ext_resource type="Script" path="res://Scenes/textbox.gd" id="6_ou3f7"]
+
+[sub_resource type="Theme" id="Theme_enjhf"]
+default_font = ExtResource("4_j3vc6")
+default_font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_poa52"]
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_74yq3"]
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75xth"]
 size = Vector2(16, 16)
@@ -15,7 +33,25 @@ b = Vector2(-21, -19)
 a = Vector2(-87, -35)
 b = Vector2(74, -35)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aaace"]
+size = Vector2(14, 8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lci1a"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yb225"]
+font = ExtResource("6_jeyxg")
+
 [node name="MainMenu" type="Node2D"]
+script = ExtResource("1_hw03h")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(13, -29)
@@ -29,10 +65,42 @@ layer_0/tile_data = PackedInt32Array(-196611, 786433, 10, -196610, 786433, 10, -
 [node name="TileMap" type="TileMap" parent="TileMap"]
 tile_set = ExtResource("2_1ectw")
 format = 2
-layer_0/tile_data = PackedInt32Array(-393214, 458752, 8, -327678, 458752, 9, -65531, 131072, 3, -65532, 196608, 4, -131068, 196608, 3, -65533, 0, 3, -393213, 65536, 70, -327677, 65536, 71, -393215, 0, 70, -327679, 0, 71)
+layer_0/tile_data = PackedInt32Array(-393214, 458752, 8, -327678, 458752, 9, -65531, 131072, 3, -65532, 196608, 4, -131068, 196608, 3, -65533, 0, 3, -393213, 65536, 70, -327677, 65536, 71, -393215, 0, 70, -327679, 0, 71, -327683, 0, 14, -262147, 0, 15, -327682, 65536, 14, -262146, 65536, 15)
+
+[node name="Menu_Indicators" type="Control" parent="."]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -75.283
+offset_top = -96.4749
+offset_right = -35.283
+offset_bottom = -56.4749
+theme = SubResource("Theme_enjhf")
+
+[node name="indicator_play" type="Label" parent="Menu_Indicators"]
+layout_mode = 0
+offset_left = 109.283
+offset_top = 1.47486
+offset_right = 122.283
+offset_bottom = 10.4749
+text = "v"
+label_settings = SubResource("LabelSettings_poa52")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="indicator_options" type="Label" parent="Menu_Indicators"]
+layout_mode = 0
+offset_left = 139.283
+offset_top = 62.4749
+offset_right = 152.283
+offset_bottom = 76.4749
+text = "v"
+label_settings = SubResource("LabelSettings_74yq3")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Player Character" parent="." instance=ExtResource("3_wxoi2")]
-position = Vector2(38, -28)
+position = Vector2(5, -24)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Player Character"]
 shape = SubResource("RectangleShape2D_75xth")
@@ -41,17 +109,87 @@ shape = SubResource("RectangleShape2D_75xth")
 position = Vector2(-1, 0)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
-position = Vector2(118, 52)
+position = Vector2(120, 52)
 shape = SubResource("SegmentShape2D_6ykee")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="walls"]
-position = Vector2(23, 67)
+position = Vector2(23, 69)
 shape = SubResource("SegmentShape2D_nrwuk")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="walls"]
-position = Vector2(24, -32)
+position = Vector2(24, -43)
 shape = SubResource("SegmentShape2D_nrwuk")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="walls"]
-position = Vector2(-43, 51)
+position = Vector2(-44, 51)
 shape = SubResource("SegmentShape2D_6ykee")
+
+[node name="trigger_playgame" type="Area2D" parent="."]
+position = Vector2(149, -57)
+
+[node name="area" type="CollisionShape2D" parent="trigger_playgame"]
+position = Vector2(-109, -12)
+shape = SubResource("RectangleShape2D_aaace")
+
+[node name="textbox" type="CanvasLayer" parent="."]
+script = ExtResource("6_ou3f7")
+
+[node name="textbox_container" type="MarginContainer" parent="textbox"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -149.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="textbox/textbox_container"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lci1a")
+
+[node name="MarginContainer" type="MarginContainer" parent="textbox/textbox_container"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="textbox/textbox_container/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="textbox/textbox_container/MarginContainer"]
+layout_mode = 2
+
+[node name="start" type="Label" parent="textbox/textbox_container/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "*"
+label_settings = SubResource("LabelSettings_yb225")
+
+[node name="text" type="Label" parent="textbox/textbox_container/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Hello World!"
+label_settings = SubResource("LabelSettings_yb225")
+autowrap_mode = 2
+
+[node name="end" type="Label" parent="textbox/textbox_container/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "v"
+label_settings = SubResource("LabelSettings_yb225")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="trigger_playgame" to="textbox" method="_on_trigger_playgame_body_entered"]
