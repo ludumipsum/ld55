@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://d3i3lnbgey12t"]
 
-[ext_resource type="PackedScene" uid="uid://cgy3g0ln4qwjp" path="res://player.tscn" id="1_tt05s"]
-[ext_resource type="PackedScene" uid="uid://c6ddeod3clnwv" path="res://floors/1_lobby.tscn" id="2_44yaa"]
-[ext_resource type="PackedScene" uid="uid://bfpny4cpk66h6" path="res://floors/0_basement.tscn" id="2_o43cl"]
+[ext_resource type="PackedScene" uid="uid://cgy3g0ln4qwjp" path="res://Scenes/player.tscn" id="1_tt05s"]
+[ext_resource type="PackedScene" uid="uid://c6ddeod3clnwv" path="res://Scenes/floors/1_lobby.tscn" id="2_44yaa"]
+[ext_resource type="PackedScene" uid="uid://bfpny4cpk66h6" path="res://Scenes/floors/0_basement.tscn" id="2_o43cl"]
 
 [node name="The Office" type="Node2D"]
 
