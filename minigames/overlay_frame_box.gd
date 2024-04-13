@@ -10,12 +10,8 @@ var rect
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	rect = Rect2(-width/2, -height/2, width, height)
+	rect = Rect2(-width/2.0, -height/2.0, width, height)
 
 func _draw():
-	draw_rect(rect, background_color, true, 0)
+	draw_rect(rect, background_color, true)
 	draw_rect(rect, border_color, false, stroke_width)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
