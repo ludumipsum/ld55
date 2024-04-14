@@ -6,7 +6,7 @@ const UP = "move_up"
 const DOWN = "move_down"
 const LEFT = "move_left"
 const RIGHT = "move_right"
-const ACT = "minigame_action"
+const ACT = "action"
 
 @export var sequence = [UP, UP, DOWN, DOWN, LEFT, RIGHT, LEFT, RIGHT, ACT]
 @export var blow_anim_scene = load("res://minigames/wind_spirit/wind_effect.tscn")
@@ -28,6 +28,7 @@ func _ready():
 func reset():
 	if blower:
 		blower.queue_free()
+		blower = null
 	remaining = sequence.duplicate()
 	spawn_next()
 

@@ -50,7 +50,7 @@ func _process(delta):
 	var target_area_ratio = stroke_width * (1.0 + fudge_factor) / height
 	
 	# Handle inputs
-	var act = Input.is_action_just_pressed("minigame_action")
+	var act = Input.is_action_just_pressed("action")
 	var in_coyote_time = time < fudge_factor				# little extra into the next frame
 	var in_target_time = alpha > (1.0 - target_area_ratio)	# on-the-beat hit
 	if act && missed_beat == false && hit_beat == false:
