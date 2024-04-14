@@ -30,5 +30,4 @@ func instantiate_floors():
 		floor_viewports.push_back(viewport)
 		floor_textures.push_back(tex)
 		floor_quads.push_back(quad)
-	change_floor_to(0)
 		

@@ -11,7 +11,7 @@
 
 [node name="Minimap" parent="." node_paths=PackedStringArray("floors") instance=ExtResource("4_7jnv1")]
 position = Vector2(479, -159)
-floors = [null, NodePath("../Floors/Lobby"), NodePath("../Floors/Lobby"), NodePath("../Floors/Lobby"), NodePath("../Floors/Lobby"), NodePath("../Floors/Lobby"), NodePath("../Floors/Lobby"), NodePath("../Floors/Lobby"), NodePath("../Floors/Lobby")]
+floors = [NodePath("../Floors/Basement"), NodePath("../Floors/Lobby")]
 
 [node name="Floors" type="Node2D" parent="."]
 
@@ -20,4 +20,4 @@ position = Vector2(-179.69, 10.6442)
 
 [node name="Lobby" parent="Floors" instance=ExtResource("2_44yaa")]
 
-[node name="Player Character2" parent="." instance=ExtResource("1_tt05s")]
+[node name="Player Character" parent="." instance=ExtResource("1_tt05s")]
