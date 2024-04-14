@@ -20,13 +20,13 @@ floor_controller = NodePath("../Floors")
 script = ExtResource("2_r30v5")
 
 [node name="Executive Offices" parent="Floors" instance=ExtResource("2_44yaa")]
+visible = false
 
 [node name="Cube Farm" parent="Floors" instance=ExtResource("2_44yaa")]
 visible = false
 
 [node name="Lobby" parent="Floors" instance=ExtResource("2_44yaa")]
-visible = false
-position = Vector2(-324, -165)
+position = Vector2(-899, -164)
 
 [node name="Basement" parent="Floors" instance=ExtResource("2_o43cl")]
 visible = false
