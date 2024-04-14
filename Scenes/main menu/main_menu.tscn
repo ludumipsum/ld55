@@ -1,13 +1,14 @@
-[gd_scene load_steps=20 format=3 uid="uid://bgdbrprx1nsra"]
+[gd_scene load_steps=21 format=3 uid="uid://bgdbrprx1nsra"]
 
 [ext_resource type="Script" path="res://Scenes/main menu/main_menu.gd" id="1_w58t3"]
 [ext_resource type="TileSet" uid="uid://ces2lmlcs0bhd" path="res://unsorted_assets/Office Tiles/office_tile_set.tres" id="2_yyoow"]
 [ext_resource type="TileSet" uid="uid://cvw8psorbl34n" path="res://unsorted_assets/Office Tiles/office_objects.tres" id="3_f1lei"]
 [ext_resource type="FontFile" uid="uid://c25dx12ryq4uf" path="res://Fonts/dogicapixel.ttf" id="4_yqkg0"]
-[ext_resource type="PackedScene" uid="uid://cgy3g0ln4qwjp" path="res://Scenes/player.tscn" id="5_pc3r1"]
+[ext_resource type="PackedScene" uid="uid://cgy3g0ln4qwjp" path="res://Scenes/player/player.tscn" id="5_pc3r1"]
 [ext_resource type="Script" path="res://Scenes/main menu/message_playgame.gd" id="6_nle5p"]
 [ext_resource type="FontFile" uid="uid://ce3om1rv7cdjs" path="res://Fonts/dogicapixelbold.ttf" id="7_leoaw"]
 [ext_resource type="Script" path="res://Scenes/main menu/message options.gd" id="8_rkrys"]
+[ext_resource type="PackedScene" uid="uid://ndcdbwmcnxy7" path="res://Scenes/escape menu/escape menu.tscn" id="9_62akp"]
 
 [sub_resource type="Theme" id="Theme_enjhf"]
 default_font = ExtResource("4_yqkg0")
@@ -291,6 +292,8 @@ text = "v"
 label_settings = SubResource("LabelSettings_yb225")
 horizontal_alignment = 2
 vertical_alignment = 2
+
+[node name="escape menu" parent="." instance=ExtResource("9_62akp")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="trigger_options" to="message options" method="_on_trigger_options_body_entered"]
