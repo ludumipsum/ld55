@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3i3lnbgey12t"]
+[gd_scene load_steps=5 format=3 uid="uid://d3i3lnbgey12t"]
 
 [ext_resource type="PackedScene" path="res://Scenes/player.tscn" id="1_tt05s"]
 [ext_resource type="PackedScene" uid="uid://c6ddeod3clnwv" path="res://Scenes/floors/1_lobby.tscn" id="2_44yaa"]
 [ext_resource type="PackedScene" uid="uid://bfpny4cpk66h6" path="res://Scenes/floors/0_basement.tscn" id="2_o43cl"]
+[ext_resource type="PackedScene" uid="uid://b76o8i6k6ti4g" path="res://minimap/minimap.tscn" id="4_7jnv1"]
 
 [node name="The Office" type="Node2D"]
 
@@ -15,3 +16,13 @@
 [node name="Lobby" parent="CanvasLayer" instance=ExtResource("2_44yaa")]
 
 [node name="Basement" parent="CanvasLayer" instance=ExtResource("2_o43cl")]
+
+[node name="Minimap" parent="." node_paths=PackedStringArray("floors") instance=ExtResource("4_7jnv1")]
+position = Vector2(479, -159)
+floors = [NodePath("../Floors/Basement"), NodePath("../Floors/Lobby"), NodePath("../Floors/Lobby"), NodePath("../Floors/Lobby"), NodePath("../Floors/Lobby"), NodePath("../Floors/Lobby"), NodePath("../Floors/Lobby"), NodePath("../Floors/Lobby"), NodePath("../Floors/Lobby")]
+
+[node name="Floors" type="Node2D" parent="."]
+
+[node name="Basement" parent="Floors" instance=ExtResource("2_o43cl")]
+
+[node name="Lobby" parent="Floors" instance=ExtResource("2_44yaa")]
