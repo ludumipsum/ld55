@@ -307,3 +307,4 @@ spirits_required = Array[int]([0, 1])
 [connection signal="body_entered" from="trigger_playgame" to="message playgame" method="_on_trigger_playgame_body_entered"]
 [connection signal="visibility_changed" from="message playgame" to="Player Character" method="freeze"]
 [connection signal="visibility_changed" from="message options" to="Player Character" method="freeze"]
+[connection signal="toggle_inputs" from="StrategemHero" to="Player Character" method="freeze"]

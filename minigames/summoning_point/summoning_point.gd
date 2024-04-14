@@ -6,7 +6,7 @@ extends Node2D
 signal activated
 
 ## The player opened or closed a minigame associated with this summoning point
-signal toggle_inputs(puzzle_takes_input: bool)
+signal toggle_inputs
 
 ## This summoning point was not handled in time
 signal timeout
@@ -103,20 +103,21 @@ func _on_puzzle_finished():
 		all_spirits_summoned.emit()
 		canvas.hide()
 		self.reset()
+		toggle_inputs.emit()
 		return
 	# We have more spirits to do, spawn the next one
 	self._spawn_next_summoning_minigame()
-		
+
 func _on_puzzle_canceled():
 	## Signal handler: when a spawned puzzle is canceled
 	canvas.hide()
-	toggle_inputs.emit(false)
+	toggle_inputs.emit()
 
 func _on_player_contact(body: Node2D):
 	if !(body is PlayerCharacter):
 		return
 	## Signal handler: when the player came into contact with our trigger area
 	if self.is_active():
-		toggle_inputs.emit(true)
+		toggle_inputs.emit()
 		self._spawn_next_summoning_minigame()
 	canvas.show()
