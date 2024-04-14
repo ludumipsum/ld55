@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/elevator/elevator.gd" id="1_vrcae"]
 [ext_resource type="Script" path="res://Scenes/elevator/elevator_options.gd" id="2_ne0gb"]
 [ext_resource type="FontFile" uid="uid://ce3om1rv7cdjs" path="res://Fonts/dogicapixelbold.ttf" id="2_o6gvp"]
-[ext_resource type="Texture2D" uid="uid://budgxy4xrsium" path="res://unsorted_assets/Office Tiles/Interiors_free_16x16.png" id="4_5lkxt"]
+[ext_resource type="Texture2D" uid="uid://budgxy4xrsium" path="res://unsorted_assets/Interiors_free_16x16.png" id="4_5lkxt"]
 
 [sub_resource type="Theme" id="Theme_cslqn"]
 default_font = ExtResource("2_o6gvp")
