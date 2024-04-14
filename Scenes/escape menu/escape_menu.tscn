@@ -1,15 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://ndcdbwmcnxy7"]
+[gd_scene load_steps=6 format=3 uid="uid://cyawn4fsopql5"]
 
-[ext_resource type="FontFile" uid="uid://ce3om1rv7cdjs" path="res://Fonts/dogicapixelbold.ttf" id="1_dvlre"]
-[ext_resource type="Script" path="res://Scenes/escape menu/escape menu.gd" id="1_g1rlu"]
-[ext_resource type="FontFile" uid="uid://c25dx12ryq4uf" path="res://Fonts/dogicapixel.ttf" id="2_ok2yt"]
+[ext_resource type="Script" path="res://Scenes/escape menu/escape menu.gd" id="1_m4d3s"]
+[ext_resource type="FontFile" uid="uid://ce3om1rv7cdjs" path="res://Fonts/dogicapixelbold.ttf" id="2_rjgs7"]
+[ext_resource type="FontFile" uid="uid://c25dx12ryq4uf" path="res://Fonts/dogicapixel.ttf" id="3_7xw35"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_18lq5"]
-font = ExtResource("1_dvlre")
+font = ExtResource("2_rjgs7")
 font_size = 32
 
 [sub_resource type="Theme" id="Theme_jdgff"]
-default_font = ExtResource("2_ok2yt")
+default_font = ExtResource("3_7xw35")
 
 [node name="escape menu" type="CanvasLayer"]
 
@@ -22,7 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_g1rlu")
+script = ExtResource("1_m4d3s")
 
 [node name="background" type="ColorRect" parent="escape menu"]
 layout_mode = 1
