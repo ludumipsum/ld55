@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://ces2lmlcs0bhd" path="res://unsorted_assets/Office Tiles/office_tile_set.tres" id="2_yyoow"]
 [ext_resource type="TileSet" uid="uid://cvw8psorbl34n" path="res://unsorted_assets/Office Tiles/office_objects.tres" id="3_f1lei"]
 [ext_resource type="FontFile" uid="uid://c25dx12ryq4uf" path="res://Fonts/dogicapixel.ttf" id="4_yqkg0"]
-[ext_resource type="PackedScene" uid="uid://cgy3g0ln4qwjp" path="res://Scenes/player.tscn" id="5_pc3r1"]
+[ext_resource type="PackedScene" path="res://Scenes/player.tscn" id="5_pc3r1"]
 [ext_resource type="Script" path="res://Scenes/main menu/message_playgame.gd" id="6_nle5p"]
 [ext_resource type="FontFile" uid="uid://ce3om1rv7cdjs" path="res://Fonts/dogicapixelbold.ttf" id="7_leoaw"]
 [ext_resource type="Script" path="res://Scenes/main menu/message_options.gd" id="8_hxsop"]
