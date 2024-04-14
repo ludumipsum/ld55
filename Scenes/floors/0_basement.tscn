@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bfpny4cpk66h6"]
 
-[ext_resource type="TileSet" uid="uid://b2qwcpbbff4sx" path="res://dungeon.tres" id="1_qbo5r"]
+[ext_resource type="TileSet" uid="uid://b2qwcpbbff4sx" path="res://unsorted_assets/2D Pixel Dungeon Asset Pack/dungeon.tres" id="1_qbo5r"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_j3usa"]
 a = Vector2(-20, -154)

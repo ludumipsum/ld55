@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://ndcdbwmcnxy7"]
+
+[ext_resource type="FontFile" uid="uid://ce3om1rv7cdjs" path="res://Fonts/dogicapixelbold.ttf" id="1_dvlre"]
+[ext_resource type="Script" path="res://Scenes/escape menu/escape menu.gd" id="1_g1rlu"]
+[ext_resource type="FontFile" uid="uid://c25dx12ryq4uf" path="res://Fonts/dogicapixel.ttf" id="2_ok2yt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_18lq5"]
+font = ExtResource("1_dvlre")
+font_size = 32
+
+[sub_resource type="Theme" id="Theme_jdgff"]
+default_font = ExtResource("2_ok2yt")
+
+[node name="escape menu" type="CanvasLayer"]
+
+[node name="escape menu" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g1rlu")
+
+[node name="background" type="ColorRect" parent="escape menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.211765, 0.211765, 0.211765, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="escape menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="escape menu/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="PAUSED" type="Label" parent="escape menu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_18lq5")
+
+[node name="spacer" type="Control" parent="escape menu/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="play" type="Button" parent="escape menu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_jdgff")
+text = "Play"
+
+[node name="main menu" type="Button" parent="escape menu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_jdgff")
+text = "Main Menu"
+
+[node name="quit" type="Button" parent="escape menu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_jdgff")
+text = "Quit"
+
+[connection signal="pressed" from="escape menu/CenterContainer/VBoxContainer/play" to="escape menu" method="_on_play_pressed"]
+[connection signal="pressed" from="escape menu/CenterContainer/VBoxContainer/main menu" to="escape menu" method="_on_main_menu_pressed"]
+[connection signal="pressed" from="escape menu/CenterContainer/VBoxContainer/quit" to="escape menu" method="_on_quit_pressed"]
