@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bfpny4cpk66h6"]
 
-[ext_resource type="TileSet" uid="uid://y88005y0a728" path="res://dungeon.tres" id="1_qbo5r"]
+[ext_resource type="TileSet" uid="uid://b2qwcpbbff4sx" path="res://dungeon.tres" id="1_qbo5r"]
 
 [node name="Basement" type="Node2D"]
 
