@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bgdbrprx1nsra"]
+[gd_scene load_steps=20 format=3 uid="uid://bgdbrprx1nsra"]
 
 [ext_resource type="Script" path="res://Scenes/main menu/main_menu.gd" id="1_w58t3"]
 [ext_resource type="TileSet" uid="uid://ces2lmlcs0bhd" path="res://unsorted_assets/Office Tiles/office_tile_set.tres" id="2_yyoow"]
@@ -22,9 +22,6 @@ outline_color = Color(0, 0, 0, 1)
 font_size = 8
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_75xth"]
-size = Vector2(16, 16)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_6ykee"]
 a = Vector2(-21, -142)
@@ -110,9 +107,6 @@ vertical_alignment = 1
 
 [node name="Player Character" parent="." instance=ExtResource("5_pc3r1")]
 position = Vector2(5, -24)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player Character"]
-shape = SubResource("RectangleShape2D_75xth")
 
 [node name="walls" type="StaticBody2D" parent="."]
 position = Vector2(-1, 0)

@@ -5,7 +5,7 @@ var player = self
 @export var speed = 100.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+#var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func get_input():
 	var input_vector := Input.get_vector("move_left", "move_right", "move_up", "move_down")

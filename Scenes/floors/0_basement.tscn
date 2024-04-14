@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfpny4cpk66h6"]
+[gd_scene load_steps=4 format=3 uid="uid://bfpny4cpk66h6"]
 
 [ext_resource type="TileSet" uid="uid://b2qwcpbbff4sx" path="res://dungeon.tres" id="1_qbo5r"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_j3usa"]
+a = Vector2(-20, -154)
+b = Vector2(-21, 164)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7acfw"]
+a = Vector2(-87, -35)
+b = Vector2(477, -35)
 
 [node name="Basement" type="Node2D"]
 
@@ -12,3 +20,22 @@ layer_0/tile_data = PackedInt32Array(-589842, 0, 0, -589841, 65536, 0, -589840, 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(8, 4)
 zoom = Vector2(2, 2)
+
+[node name="walls" type="StaticBody2D" parent="."]
+position = Vector2(-1, 0)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
+position = Vector2(311, -4)
+shape = SubResource("SegmentShape2D_j3usa")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="walls"]
+position = Vector2(-185, 195)
+shape = SubResource("SegmentShape2D_7acfw")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="walls"]
+position = Vector2(-186, -123)
+shape = SubResource("SegmentShape2D_7acfw")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="walls"]
+position = Vector2(-251, -4)
+shape = SubResource("SegmentShape2D_j3usa")

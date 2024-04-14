@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://crxusjbsed2xp" path="res://character.tres" id="2_ybyww"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7m2s"]
+size = Vector2(16, 15)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 motion_mode = 1
@@ -13,4 +14,5 @@ script = ExtResource("1_6vvkb")
 texture = ExtResource("2_ybyww")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_q7m2s")
