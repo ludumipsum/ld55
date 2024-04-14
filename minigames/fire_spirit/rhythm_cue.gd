@@ -14,6 +14,8 @@ signal puzzle_finished
 @export var miss_color: Color = Color.RED
 @export var hit_color: Color = Color.GREEN
 
+@export var beats_left_label: Label
+
 var time: float = 0
 var coyote_bit = false
 var missed_beat: bool = false
@@ -37,6 +39,10 @@ func _process(delta):
 	# Handle completion if the previous frame had the last beat hit
 	if successes >= successes_required:
 		puzzle_finished.emit()
+	
+	# Set the label to the number of hits required to finish
+	if beats_left_label:
+		beats_left_label.text = "%d left" % (successes_required - successes)
 	
 	# Step the timer forward to scale the beat pulser
 	var time_dilation_factor = bpm / 60.0
