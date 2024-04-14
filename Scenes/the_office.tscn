@@ -28,7 +28,6 @@ visible = false
 [node name="Lobby" parent="Floors" instance=ExtResource("2_44yaa")]
 position = Vector2(-899, -164)
 
-
 [node name="Basement" parent="Floors" instance=ExtResource("2_o43cl")]
 position = Vector2(-179.69, 10.6442)
 

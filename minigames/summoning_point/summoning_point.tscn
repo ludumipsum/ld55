@@ -62,7 +62,7 @@ viewport_path = NodePath("MinigameViewport")
 script = ExtResource("1_qxlgs")
 
 [node name="ActionIndicator" type="Label" parent="."]
-modulate = Color(0.980949, 0.980949, 0, 0.994884)
+modulate = Color(0.439538, 0.439538, 0, 0.712297)
 offset_left = -6.0
 offset_top = -12.0
 offset_right = 7.0

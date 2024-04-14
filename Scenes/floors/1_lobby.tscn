@@ -8481,7 +8481,7 @@ size = Vector2(22, 65)
 size = Vector2(44, 69.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_28evq"]
-size = Vector2(108, 8.75)
+size = Vector2(110, 9.375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mo3u8"]
 size = Vector2(14, 5.375)
@@ -8529,6 +8529,7 @@ size = Vector2(149.034, 14.6675)
 size = Vector2(92, 14.6675)
 
 [node name="Lobby" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [287.0]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_dc7bo")
@@ -8584,7 +8585,15 @@ position = Vector2(808, 21)
 shape = SubResource("RectangleShape2D_mo3u8")
 
 [node name="CollisionShape2D36" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(809, 219)
+position = Vector2(808, 219)
+shape = SubResource("RectangleShape2D_28evq")
+
+[node name="CollisionShape2D39" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(808, 283.313)
+shape = SubResource("RectangleShape2D_28evq")
+
+[node name="CollisionShape2D40" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(632, 283)
 shape = SubResource("RectangleShape2D_28evq")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
