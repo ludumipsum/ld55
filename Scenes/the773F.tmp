@@ -23,5 +23,3 @@ position = Vector2(-179.69, 10.6442)
 [node name="Lobby" parent="Floors" instance=ExtResource("2_44yaa")]
 
 [node name="Player Character" parent="." instance=ExtResource("1_tt05s")]
-
-[connection signal="change_floors" from="Floors" to="Minimap" method="change_floor_to"]

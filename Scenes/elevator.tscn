@@ -1,0 +1,124 @@
+[gd_scene load_steps=8 format=3 uid="uid://bsjyjb5jo0x08"]
+
+[ext_resource type="Script" path="res://Scenes/main menu/message_options.gd" id="1_0odl0"]
+[ext_resource type="FontFile" uid="uid://ce3om1rv7cdjs" path="res://Fonts/dogicapixelbold.ttf" id="2_o6gvp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xu6tm"]
+size = Vector2(16, 6)
+
+[sub_resource type="Theme" id="Theme_cslqn"]
+default_font = ExtResource("2_o6gvp")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_518dv"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hqxhi"]
+font = ExtResource("2_o6gvp")
+
+[sub_resource type="Theme" id="Theme_8ptm8"]
+
+[node name="Elevator" type="Node2D"]
+
+[node name="trigger_options" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="trigger_options"]
+shape = SubResource("RectangleShape2D_xu6tm")
+
+[node name="message options" type="CanvasLayer" parent="."]
+script = ExtResource("1_0odl0")
+
+[node name="textbox_container" type="MarginContainer" parent="message options"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -149.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme = SubResource("Theme_cslqn")
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="message options/textbox_container"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_518dv")
+
+[node name="MarginContainer" type="MarginContainer" parent="message options/textbox_container"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="message options/textbox_container/MarginContainer"]
+layout_mode = 2
+
+[node name="start" type="Label" parent="message options/textbox_container/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "*"
+label_settings = SubResource("LabelSettings_hqxhi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="message options/textbox_container/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_8ptm8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="message options/textbox_container/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="option 1" type="Label" parent="message options/textbox_container/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "option 1"
+
+[node name="Label1" type="Label" parent="message options/textbox_container/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "<"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="message options/textbox_container/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="option 2" type="Label" parent="message options/textbox_container/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "option 2"
+
+[node name="Label2" type="Label" parent="message options/textbox_container/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer5"]
+visible = false
+layout_mode = 2
+text = "<"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="message options/textbox_container/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="option 3" type="Label" parent="message options/textbox_container/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "option 3"
+
+[node name="Label3" type="Label" parent="message options/textbox_container/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer4"]
+visible = false
+layout_mode = 2
+text = "<"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="message options/textbox_container/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="message options/textbox_container/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="end" type="Label" parent="message options/textbox_container/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "v"
+label_settings = SubResource("LabelSettings_hqxhi")
+horizontal_alignment = 2
+vertical_alignment = 2
