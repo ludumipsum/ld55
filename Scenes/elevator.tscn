@@ -1,0 +1,152 @@
+[gd_scene load_steps=12 format=3 uid="uid://bsjyjb5jo0x08"]
+
+[ext_resource type="Script" path="res://Scenes/elevator.gd" id="1_vrcae"]
+[ext_resource type="Script" path="res://Scenes/elevator_options.gd" id="2_ne0gb"]
+[ext_resource type="FontFile" uid="uid://ce3om1rv7cdjs" path="res://Fonts/dogicapixelbold.ttf" id="2_o6gvp"]
+[ext_resource type="Texture2D" uid="uid://budgxy4xrsium" path="res://unsorted_assets/Office Tiles/Interiors_free_16x16.png" id="4_5lkxt"]
+
+[sub_resource type="Theme" id="Theme_cslqn"]
+default_font = ExtResource("2_o6gvp")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_518dv"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hqxhi"]
+font = ExtResource("2_o6gvp")
+
+[sub_resource type="Theme" id="Theme_8ptm8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h78kv"]
+atlas = ExtResource("4_5lkxt")
+region = Rect2(13, 423, 38, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mr856"]
+atlas = ExtResource("4_5lkxt")
+region = Rect2(66, 448, 6, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xu6tm"]
+size = Vector2(45, 15.5)
+
+[node name="Elevator" type="Node2D"]
+script = ExtResource("1_vrcae")
+
+[node name="message options" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("2_ne0gb")
+
+[node name="textbox_container" type="MarginContainer" parent="message options"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -149.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme = SubResource("Theme_cslqn")
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="message options/textbox_container"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_518dv")
+
+[node name="MarginContainer" type="MarginContainer" parent="message options/textbox_container"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="message options/textbox_container/MarginContainer"]
+layout_mode = 2
+
+[node name="start" type="Label" parent="message options/textbox_container/MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "*"
+label_settings = SubResource("LabelSettings_hqxhi")
+
+[node name="OptionList" type="VBoxContainer" parent="message options/textbox_container/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_8ptm8")
+
+[node name="Executive Office" type="HBoxContainer" parent="message options/textbox_container/MarginContainer/HBoxContainer/OptionList"]
+layout_mode = 2
+
+[node name="active_marker" type="Label" parent="message options/textbox_container/MarginContainer/HBoxContainer/OptionList/Executive Office"]
+layout_mode = 2
+text = ">"
+
+[node name="label" type="Label" parent="message options/textbox_container/MarginContainer/HBoxContainer/OptionList/Executive Office"]
+layout_mode = 2
+text = "Executive Office"
+
+[node name="Cube Farm" type="HBoxContainer" parent="message options/textbox_container/MarginContainer/HBoxContainer/OptionList"]
+layout_mode = 2
+
+[node name="active_marker" type="Label" parent="message options/textbox_container/MarginContainer/HBoxContainer/OptionList/Cube Farm"]
+layout_mode = 2
+text = "  "
+
+[node name="label" type="Label" parent="message options/textbox_container/MarginContainer/HBoxContainer/OptionList/Cube Farm"]
+layout_mode = 2
+text = "Cube Farm"
+
+[node name="Lobby" type="HBoxContainer" parent="message options/textbox_container/MarginContainer/HBoxContainer/OptionList"]
+layout_mode = 2
+
+[node name="active_marker" type="Label" parent="message options/textbox_container/MarginContainer/HBoxContainer/OptionList/Lobby"]
+layout_mode = 2
+text = "  "
+
+[node name="label" type="Label" parent="message options/textbox_container/MarginContainer/HBoxContainer/OptionList/Lobby"]
+layout_mode = 2
+text = "Lobby"
+
+[node name="Basement" type="HBoxContainer" parent="message options/textbox_container/MarginContainer/HBoxContainer/OptionList"]
+layout_mode = 2
+
+[node name="active_marker" type="Label" parent="message options/textbox_container/MarginContainer/HBoxContainer/OptionList/Basement"]
+layout_mode = 2
+text = "  "
+
+[node name="label" type="Label" parent="message options/textbox_container/MarginContainer/HBoxContainer/OptionList/Basement"]
+layout_mode = 2
+text = "Basement"
+
+[node name="end" type="Label" parent="message options/textbox_container/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "v"
+label_settings = SubResource("LabelSettings_hqxhi")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Elevator Doors" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_h78kv")
+
+[node name="Call Button" type="Sprite2D" parent="Elevator Doors"]
+position = Vector2(24, 0)
+texture = SubResource("AtlasTexture_mr856")
+
+[node name="trigger_options" type="Area2D" parent="Elevator Doors"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Elevator Doors/trigger_options"]
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_xu6tm")
+
+[connection signal="change_floor_to" from="message options" to="." method="_on_change_floor_to"]
+[connection signal="visibility_changed" from="message options" to="." method="_on_message_options_visibility_changed"]
+[connection signal="body_entered" from="Elevator Doors/trigger_options" to="message options" method="_on_trigger_options_body_entered"]

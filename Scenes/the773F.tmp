@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3i3lnbgey12t"]
+
+[ext_resource type="PackedScene" uid="uid://cgy3g0ln4qwjp" path="res://Scenes/player.tscn" id="1_tt05s"]
+[ext_resource type="PackedScene" uid="uid://c6ddeod3clnwv" path="res://Scenes/floors/1_lobby.tscn" id="2_44yaa"]
+[ext_resource type="PackedScene" uid="uid://bfpny4cpk66h6" path="res://Scenes/floors/0_basement.tscn" id="2_o43cl"]
+[ext_resource type="Script" path="res://Scenes/Floors.gd" id="2_r30v5"]
+[ext_resource type="PackedScene" uid="uid://b76o8i6k6ti4g" path="res://minimap/minimap.tscn" id="4_7jnv1"]
+
+[node name="The Office" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Minimap" parent="." node_paths=PackedStringArray("floors") instance=ExtResource("4_7jnv1")]
+position = Vector2(479, -159)
+floors = [NodePath("../Floors/Basement"), NodePath("../Floors/Lobby")]
+
+[node name="Floors" type="Node2D" parent="."]
+script = ExtResource("2_r30v5")
+
+[node name="Basement" parent="Floors" instance=ExtResource("2_o43cl")]
+position = Vector2(-179.69, 10.6442)
+
+[node name="Lobby" parent="Floors" instance=ExtResource("2_44yaa")]
+
+[node name="Player Character" parent="." instance=ExtResource("1_tt05s")]
