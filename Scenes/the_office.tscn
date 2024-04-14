@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scenes/Floors.gd" id="2_r30v5"]
 [ext_resource type="PackedScene" uid="uid://b76o8i6k6ti4g" path="res://minimap/minimap.tscn" id="4_7jnv1"]
 [ext_resource type="PackedScene" uid="uid://bsjyjb5jo0x08" path="res://Scenes/elevator/elevator.tscn" id="5_r8e04"]
-[ext_resource type="PackedScene" uid="uid://ndcdbwmcnxy7" path="res://Scenes/escape menu/escape menu.tscn" id="7_0khle"]
+[ext_resource type="PackedScene" uid="uid://cyawn4fsopql5" path="res://Scenes/escape menu/escape_menu.tscn" id="7_0khle"]
 
 [node name="The Office" type="Node2D"]
 

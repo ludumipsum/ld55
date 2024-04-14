@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scenes/main menu/message_playgame.gd" id="6_nle5p"]
 [ext_resource type="FontFile" uid="uid://ce3om1rv7cdjs" path="res://Fonts/dogicapixelbold.ttf" id="7_leoaw"]
 [ext_resource type="Script" path="res://Scenes/main menu/message options.gd" id="8_rkrys"]
-[ext_resource type="PackedScene" uid="uid://ndcdbwmcnxy7" path="res://Scenes/escape menu/escape menu.tscn" id="9_62akp"]
+[ext_resource type="PackedScene" uid="uid://cyawn4fsopql5" path="res://Scenes/escape menu/escape_menu.tscn" id="9_62akp"]
 
 [sub_resource type="Theme" id="Theme_enjhf"]
 default_font = ExtResource("4_yqkg0")
