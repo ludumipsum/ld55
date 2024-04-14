@@ -1,8 +1,8 @@
 extends CanvasLayer
 
-@onready var label1 = $textbox_container/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Label1
-@onready var label2 = $textbox_container/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer5/Label2
-@onready var label3 = $textbox_container/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer4/Label3
+@onready var label1 = $textbox_container/MarginContainer/HBoxContainer/OptionList/HBoxContainer/Label1
+@onready var label2 = $textbox_container/MarginContainer/HBoxContainer/OptionList/HBoxContainer5/Label2
+@onready var label3 = $textbox_container/MarginContainer/HBoxContainer/OptionList/HBoxContainer4/Label3
 
 var seen = false
 var option = 1

@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7iv428awgqty"]
+
+[sub_resource type="GDScript" id="GDScript_uidbo"]
+script/source = "extends HBoxContainer
+
+@export var text: String = \"\"
+@export var active: bool = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$text.text = text
+"
+
+[node name="HBoxContainer" type="HBoxContainer"]
+script = SubResource("GDScript_uidbo")
+
+[node name="text" type="Label" parent="."]
+layout_mode = 2
+text = "option 1"
+
+[node name="active label" type="Label" parent="."]
+layout_mode = 2
+text = "<"

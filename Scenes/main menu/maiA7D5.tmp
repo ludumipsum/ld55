@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cgy3g0ln4qwjp" path="res://Scenes/player.tscn" id="5_pc3r1"]
 [ext_resource type="Script" path="res://Scenes/main menu/message_playgame.gd" id="6_nle5p"]
 [ext_resource type="FontFile" uid="uid://ce3om1rv7cdjs" path="res://Fonts/dogicapixelbold.ttf" id="7_leoaw"]
-[ext_resource type="Script" path="res://Scenes/main menu/message options.gd" id="8_rkrys"]
+[ext_resource type="Script" path="res://Scenes/elevator_options.gd" id="8_hxsop"]
 
 [sub_resource type="Theme" id="Theme_enjhf"]
 default_font = ExtResource("4_yqkg0")
@@ -199,7 +199,7 @@ vertical_alignment = 2
 
 [node name="message options" type="CanvasLayer" parent="."]
 visible = false
-script = ExtResource("8_rkrys")
+script = ExtResource("8_hxsop")
 
 [node name="textbox_container" type="MarginContainer" parent="message options"]
 anchors_preset = 12

@@ -1,15 +1,17 @@
 extends Node2D
 
-@export var floors: Array[Node2D]
+@export var floor_controller: Node2D
 
 @onready var sprite = $ViewportSprite
 @onready var stack = $"Viewport/Floor Stack"
 @onready var viewport = $Viewport
 
-var active_floor: int = 0
+var active_floor: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var floors: Array[Node] = floor_controller.get_children()
+	active_floor = floors.size() - 1
 	sprite.texture = viewport.get_texture()
 	stack.floors = floors
 	stack.instantiate_floors()
