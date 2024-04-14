@@ -14,6 +14,8 @@ signal puzzle_finished
 @export var miss_color: Color = Color.RED
 @export var hit_color: Color = Color.GREEN
 
+@export var beats_left_label: Label
+
 var time: float = 0
 var coyote_bit = false
 var missed_beat: bool = false
@@ -38,6 +40,10 @@ func _process(delta):
 	if successes >= successes_required:
 		puzzle_finished.emit()
 	
+	# Set the label to the number of hits required to finish
+	if beats_left_label:
+		beats_left_label.text = "%d left" % (successes_required - successes)
+	
 	# Step the timer forward to scale the beat pulser
 	var time_dilation_factor = bpm / 60.0
 	time += (delta * time_dilation_factor)
@@ -50,7 +56,7 @@ func _process(delta):
 	var target_area_ratio = stroke_width * (1.0 + fudge_factor) / height
 	
 	# Handle inputs
-	var act = Input.is_action_just_pressed("minigame_action")
+	var act = Input.is_action_just_pressed("action")
 	var in_coyote_time = time < fudge_factor				# little extra into the next frame
 	var in_target_time = alpha > (1.0 - target_area_ratio)	# on-the-beat hit
 	if act && missed_beat == false && hit_beat == false:

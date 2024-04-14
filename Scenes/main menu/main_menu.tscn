@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bgdbrprx1nsra"]
+[gd_scene load_steps=22 format=3 uid="uid://bgdbrprx1nsra"]
 
 [ext_resource type="Script" path="res://Scenes/main menu/main_menu.gd" id="1_w58t3"]
 [ext_resource type="TileSet" uid="uid://ces2lmlcs0bhd" path="res://unsorted_assets/Office_Tiles/office_tile_set.tres" id="2_yyoow"]
@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://ce3om1rv7cdjs" path="res://Fonts/dogicapixelbold.ttf" id="7_leoaw"]
 [ext_resource type="Script" path="res://Scenes/main menu/message options.gd" id="8_rkrys"]
 [ext_resource type="PackedScene" uid="uid://cyawn4fsopql5" path="res://Scenes/escape menu/escape_menu.tscn" id="9_62akp"]
+[ext_resource type="PackedScene" uid="uid://bmfbdamx2iue1" path="res://minigames/summoning_point/summoning_point.tscn" id="9_t55be"]
 
 [sub_resource type="Theme" id="Theme_enjhf"]
 default_font = ExtResource("4_yqkg0")
@@ -72,7 +73,7 @@ layer_0/tile_data = PackedInt32Array(-196611, 786433, 10, -196610, 786433, 10, -
 [node name="TileMap" type="TileMap" parent="TileMap"]
 tile_set = ExtResource("3_f1lei")
 format = 2
-layer_0/tile_data = PackedInt32Array(-393214, 458752, 8, -327678, 458752, 9, -65531, 131072, 3, -65532, 196608, 4, -131068, 196608, 3, -65533, 0, 3, -393213, 65536, 70, -327677, 65536, 71, -393215, 0, 70, -327679, 0, 71, -327683, 0, 14, -262147, 0, 15, -327682, 65536, 14, -262146, 65536, 15)
+layer_0/tile_data = PackedInt32Array(-393214, 458752, 8, -327678, 458752, 9, -65531, 131072, 3, -65532, 196608, 4, -131068, 196608, 3, -65533, 0, 3, -393213, 65536, 70, -327677, 65536, 71, -393215, 0, 70, -327679, 0, 71, -327683, 0, 14, -262147, 0, 15, -327682, 65536, 14, -262146, 65536, 15, 65532, 589824, 35, 131068, 589824, 36)
 
 [node name="Menu_Indicators" type="Control" parent="."]
 modulate = Color(1, 1, 0, 1)
@@ -293,6 +294,12 @@ label_settings = SubResource("LabelSettings_yb225")
 horizontal_alignment = 2
 vertical_alignment = 2
 
+[node name="StrategemHero" parent="." instance=ExtResource("9_t55be")]
+position = Vector2(-56, 12)
+start_active = true
+always_active = true
+spirits_required = Array[int]([0, 1])
+
 [node name="escape menu" parent="." instance=ExtResource("9_62akp")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
@@ -300,3 +307,4 @@ vertical_alignment = 2
 [connection signal="body_entered" from="trigger_playgame" to="message playgame" method="_on_trigger_playgame_body_entered"]
 [connection signal="visibility_changed" from="message playgame" to="Player Character" method="freeze"]
 [connection signal="visibility_changed" from="message options" to="Player Character" method="freeze"]
+[connection signal="toggle_inputs" from="StrategemHero" to="Player Character" method="freeze"]

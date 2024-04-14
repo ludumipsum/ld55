@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmfbdamx2iue1"]
+
+[ext_resource type="Script" path="res://minigames/summoning_point/summoning_point.gd" id="1_qxlgs"]
+[ext_resource type="FontFile" uid="uid://c25dx12ryq4uf" path="res://Fonts/dogicapixel.ttf" id="2_5axxb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fv6je"]
+font = ExtResource("2_5axxb")
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_l32ko"]
+resource_name = "pulse"
+length = 0.75
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.3, 0, 1, -0.3, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.75)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.3, 0, 1, -0.3, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.75)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.1, 0.0347093, 1, -0.45, 0.0211298, 0.25, 0),
+"times": PackedFloat32Array(0, 0.75)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kwwsu"]
+_data = {
+"pulse": SubResource("Animation_l32ko")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dc8f3"]
+size = Vector2(23, 27)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0m0vu"]
+viewport_path = NodePath("MinigameViewport")
+
+[node name="SummoningPoint" type="Node2D"]
+script = ExtResource("1_qxlgs")
+
+[node name="ActionIndicator" type="Label" parent="."]
+modulate = Color(0.980949, 0.980949, 0, 0.994884)
+offset_left = -6.0
+offset_top = -12.0
+offset_right = 7.0
+text = "v"
+label_settings = SubResource("LabelSettings_fv6je")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ActionIndicator"]
+libraries = {
+"": SubResource("AnimationLibrary_kwwsu")
+}
+autoplay = "pulse"
+
+[node name="TriggerArea" type="Area2D" parent="."]
+
+[node name="TriggerAreaShape" type="CollisionShape2D" parent="TriggerArea"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_dc8f3")
+
+[node name="LifespanTimer" type="Timer" parent="."]
+
+[node name="MinigameViewport" type="SubViewport" parent="."]
+size = Vector2i(320, 160)
+
+[node name="Camera2D" type="Camera2D" parent="MinigameViewport"]
+
+[node name="MinigameCanvas" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -30)
+scale = Vector2(0.25, 0.25)
+texture = SubResource("ViewportTexture_0m0vu")
+
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_player_contact"]
+[connection signal="timeout" from="LifespanTimer" to="." method="_on_lifespan_timeout"]
