@@ -87,7 +87,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(20, -0.25, 0, 21.9, 17.0535, 12.4321, -25.4, 15.6419, 32.7, 16.2212, 10.4044, -18.2, 11.2969, 35.9, 7.53127, 5.19047, -21.6, 8.51502, 0.25, 0),
+"points": PackedFloat32Array(10, -0.25, 0, 36.7, 8.26912, 10, -87.1, 0.158523, 65.1, 5.95181, 7, -23.9, -0.317447, 32.1, 6.34483, 4, -50.5, -8.03502, 0.25, 0),
 "times": PackedFloat32Array(0, 125.7, 219.1, 299.5)
 }
 tracks/1/type = "value"
@@ -175,7 +175,7 @@ layout_mode = 2
 
 [node name="ProgressIndicator" type="ColorRect" parent="CanvasLayer/Day UI/VBoxContainer/ClockRow"]
 layout_mode = 2
-color = Color(0.43451, 0.999482, 0.794712, 1)
+color = Color(0.431373, 1, 0.8, 1)
 
 [node name="ActiveSpiritsRow" type="HBoxContainer" parent="CanvasLayer/Day UI/VBoxContainer"]
 layout_mode = 2
@@ -275,7 +275,7 @@ clock_label = NodePath("../CanvasLayer/Day UI/VBoxContainer/ClockRow/ClockText")
 summoned_spirits_counter = NodePath("../CanvasLayer/Day UI/VBoxContainer/ProgressRow/SummonedSpiritsNumber")
 total_spirits_counter = NodePath("../CanvasLayer/Day UI/VBoxContainer/ProgressRow/TotalSpiritsNumber")
 active_spirits_counter = NodePath("../CanvasLayer/Day UI/VBoxContainer/ActiveSpiritsRow/ActiveSpiritsNumber")
-activation_period = 20.5225
+activation_period = 15.0
 
 [node name="ActivationTimer" type="Timer" parent="WorkDayController"]
 wait_time = 5.0
