@@ -21,7 +21,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_ymmfi"]
 resource_name = "idle"
 length = 0.5
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -59,6 +58,7 @@ _data = {
 }
 
 [node name="Spirit" type="Node2D"]
+scale = Vector2(2.9, 2.9)
 script = ExtResource("1_hhyi4")
 element = 5
 
@@ -72,3 +72,5 @@ frame = 3
 libraries = {
 "": SubResource("AnimationLibrary_f4r4i")
 }
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

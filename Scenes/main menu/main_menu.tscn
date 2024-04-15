@@ -298,7 +298,7 @@ vertical_alignment = 2
 position = Vector2(-56, 12)
 start_active = true
 always_active = true
-spirits_required = Array[int]([0, 1])
+spirits_required = Array[int]([5, 2])
 
 [node name="escape menu" parent="." instance=ExtResource("9_62akp")]
 

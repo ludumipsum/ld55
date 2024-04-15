@@ -1,6 +1,10 @@
 extends Node2D
 class_name Spirit
-enum Element{Grass,Light,Fire,Water,Earth,Air,Writing,Void}
+
+signal animation_finished
+
+enum Element {Grass, Light, Fire, Water, Earth, Air, Writing, Void}
+
 @export var element: Element
 @onready var player = $AnimationPlayer
 
@@ -25,8 +29,15 @@ func _ready():
 			modulate = Color.REBECCA_PURPLE
 	player.queue("summon")
 	player.queue("idle")
+	player.queue("idle")
+	player.queue("RESET")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "RESET":
+		animation_finished.emit()

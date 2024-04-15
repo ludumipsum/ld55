@@ -8,6 +8,40 @@
 script/source = "extends SummoningMinigame
 class_name SummonWindSpirit
 
+enum DirectionInput {
+	UP,
+	RIGHT,
+	DOWN,
+	LEFT
+}
+
+@export var sequence: Array[DirectionInput] = [
+	DirectionInput.UP,
+	DirectionInput.UP,
+	DirectionInput.DOWN,
+	DirectionInput.DOWN,
+	DirectionInput.LEFT,
+	DirectionInput.RIGHT,
+	DirectionInput.LEFT,
+	DirectionInput.RIGHT
+]
+   
+func _ready():
+	var seq = []
+	for dir in sequence:
+		match dir:
+			DirectionInput.UP:
+				\"move_up\"
+			DirectionInput.RIGHT:
+				\"move_right\"
+			DirectionInput.DOWN:
+				\"move_down\"
+			DirectionInput.LEFT:
+				\"move_left\"
+			var otherwise:
+				printerr(\"unknown direction input for wind spirit\", otherwise)
+	$\"Direction Cue\".sequence = seq
+
 func _on_puzzle_finished():
 	## Handler for the rhythm queue reporting that the puzzle's done
 	puzzle_finished.emit()
