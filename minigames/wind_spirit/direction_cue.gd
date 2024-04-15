@@ -1,4 +1,5 @@
 extends Node2D
+class_name WindSpiritDirectionCue
 
 signal puzzle_finished
 
@@ -8,7 +9,6 @@ const LEFT = "move_left"
 const RIGHT = "move_right"
 const ACT = "action"
 
-@export var sequence = [UP, UP, DOWN, DOWN, LEFT, RIGHT, LEFT, RIGHT, ACT]
 @export var blow_anim_scene = load("res://minigames/wind_spirit/wind_effect.tscn")
 @export var cooldown: float = 0.5
 
@@ -19,6 +19,7 @@ const ACT = "action"
 @onready var hit = $hit
 @onready var miss = $miss
 
+var sequence: Array[String] = [UP]
 var remaining = []
 var blower
 var input_needed
@@ -27,11 +28,15 @@ var current_cooldown = 0.0
 func _ready():
 	reset()
 
+func set_sequence(seq: Array[String]):
+	sequence = seq
+
 func reset():
+	current_cooldown = 0.0
 	if blower:
 		blower.queue_free()
 		blower = null
-	remaining = sequence.duplicate()
+	remaining = sequence.duplicate(true)
 	spawn_next()
 
 func spawn_next():
@@ -56,8 +61,8 @@ func spawn_next():
 			indicator_rotation = 180
 		LEFT:
 			indicator_rotation = -90
-		ACT:
-			indicator_rotation = 45
+		_:
+			indicator_rotation = 0
 	blower.rotate(deg_to_rad(indicator_rotation))
 
 func check_wrong_input():
@@ -68,6 +73,8 @@ func check_wrong_input():
 		if Input.is_action_just_pressed(wrong_action):
 			current_cooldown = cooldown
 			miss.play()
+			return true
+	return false
 
 func _process(delta):
 	if current_cooldown > 0:
@@ -77,8 +84,7 @@ func _process(delta):
 		else:
 			return
 	
-	check_wrong_input()
-	if Input.is_action_just_pressed(input_needed):
+	if not check_wrong_input() and Input.is_action_just_pressed(input_needed):
 		blower.play()
 		hit.play()
 		spawn_next()

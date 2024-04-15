@@ -42,7 +42,7 @@ func is_active():
 
 func activate():
 	## Activate this summoning point for the player to go fix
-	remaining_spirit_elements = spirits_required.duplicate()
+	remaining_spirit_elements = spirits_required.duplicate(true)
 	lifespan.start(seconds_to_complete)
 	activated.emit()
 	$ActionIndicator.visible = true
@@ -54,7 +54,7 @@ func reset():
 	interact_disabled = false
 	if little_guy:
 		self.remove_child(little_guy)
-	remaining_spirit_elements = spirits_required.duplicate()
+	remaining_spirit_elements = spirits_required.duplicate(true)
 	$ActionIndicator.visible = false
 	if always_active:
 		self.activate()

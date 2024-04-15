@@ -27,24 +27,22 @@ enum DirectionInput {
 	DirectionInput.LEFT,
 	DirectionInput.RIGHT
 ]
-@onready var cue: WindSpiritDirectionCue = $\"Direction Cue\"
-
+   
 func _ready():
-	var seq: Array[String] = []
+	var seq = []
 	for dir in sequence:
 		match dir:
 			DirectionInput.UP:
-				seq.push_back(\"move_up\")
+				\"move_up\"
 			DirectionInput.RIGHT:
-				seq.push_back(\"move_right\")
+				\"move_right\"
 			DirectionInput.DOWN:
-				seq.push_back(\"move_down\")
+				\"move_down\"
 			DirectionInput.LEFT:
-				seq.push_back(\"move_left\")
+				\"move_left\"
 			var otherwise:
 				printerr(\"unknown direction input for wind spirit\", otherwise)
-	cue.set_sequence(seq)
-	cue.reset()
+	$\"Direction Cue\".sequence = seq
 
 func _on_puzzle_finished():
 	## Handler for the rhythm queue reporting that the puzzle's done
