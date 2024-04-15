@@ -16,6 +16,8 @@ const ACT = "action"
 @export var miss_color: Color = Color.RED
 @export var hit_color: Color = Color.GREEN
 
+@onready var hit = $hit
+@onready var miss = $miss
 
 var remaining = []
 var blower
@@ -65,6 +67,7 @@ func check_wrong_input():
 	for wrong_action in wrong_actions:
 		if Input.is_action_just_pressed(wrong_action):
 			current_cooldown = cooldown
+			miss.play()
 
 func _process(delta):
 	if current_cooldown > 0:
@@ -77,5 +80,6 @@ func _process(delta):
 	check_wrong_input()
 	if Input.is_action_just_pressed(input_needed):
 		blower.play()
+		hit.play()
 		spawn_next()
 	

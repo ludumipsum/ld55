@@ -16,6 +16,9 @@ signal puzzle_finished
 
 @export var beats_left_label: Label
 
+@onready var hit = $fire_pass
+@onready var miss = $fire_fail
+
 var time: float = 0
 var coyote_bit = false
 var missed_beat: bool = false
@@ -30,6 +33,7 @@ func _ready():
 func reset_beat():
 	if hit_beat:
 		successes += 1
+		
 	missed_beat = false
 	hit_beat = false
 	while time > 1.0:
@@ -63,12 +67,14 @@ func _process(delta):
 		if in_target_time:
 			hit_beat = true		# record the hit
 			coyote_bit = true	# mark that this was in regular time, so coyote time isn't allowed
+			hit.play()
 								# at the top of the next cycle
 			return
 		if in_coyote_time && !coyote_bit:
 			hit_beat = true
 			return
 		missed_beat = true
+		miss.play()
 	if !in_target_time && !in_coyote_time && coyote_bit:
 		coyote_bit = false
 

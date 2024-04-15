@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var label1 = $textbox_container/MarginContainer/HBoxContainer/OptionList/HBoxContainer/Label1
 @onready var label2 = $textbox_container/MarginContainer/HBoxContainer/OptionList/HBoxContainer5/Label2
 @onready var label3 = $textbox_container/MarginContainer/HBoxContainer/OptionList/HBoxContainer4/Label3
+@onready var select = $select
 
 var seen = false
 var option = 1
@@ -87,10 +88,13 @@ func opt3():
 func _process(_delta):
 	if seen == true:
 		if Input.is_action_just_pressed("move_up") == true:
+			select.play()
 			up_select()
 		if Input.is_action_just_pressed("move_down") ==true:
+			select.play()
 			down_select()
 		if Input.is_action_just_pressed("action") == true:
+			select.play()
 			action()
 		
 		

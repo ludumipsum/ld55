@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b56p5qqanebxg"]
+[gd_scene load_steps=8 format=3 uid="uid://b56p5qqanebxg"]
 
 [ext_resource type="Script" path="res://minigames/spirit/spirit.gd" id="1_hhyi4"]
 [ext_resource type="Texture2D" uid="uid://dh2ked1kvsexc" path="res://unsorted_assets/Gray Slime Spritesheet.png" id="2_gii0u"]
+[ext_resource type="AudioStream" uid="uid://xhgt8kdq7gra" path="res://unsorted_assets/audio/summon.wav" id="3_qrtoj"]
 
 [sub_resource type="Animation" id="Animation_2m8np"]
 length = 0.001
@@ -72,5 +73,8 @@ frame = 3
 libraries = {
 "": SubResource("AnimationLibrary_f4r4i")
 }
+
+[node name="summon" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qrtoj")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

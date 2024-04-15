@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bgdbrprx1nsra"]
+[gd_scene load_steps=23 format=3 uid="uid://bgdbrprx1nsra"]
 
 [ext_resource type="Script" path="res://Scenes/main menu/main_menu.gd" id="1_w58t3"]
 [ext_resource type="TileSet" uid="uid://ces2lmlcs0bhd" path="res://unsorted_assets/Office_Tiles/office_tile_set.tres" id="2_yyoow"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cgy3g0ln4qwjp" path="res://Scenes/player/player.tscn" id="5_pc3r1"]
 [ext_resource type="Script" path="res://Scenes/main menu/message_playgame.gd" id="6_nle5p"]
 [ext_resource type="FontFile" uid="uid://ce3om1rv7cdjs" path="res://Fonts/dogicapixelbold.ttf" id="7_leoaw"]
+[ext_resource type="AudioStream" uid="uid://ckn4id37qsxnf" path="res://unsorted_assets/audio/select.wav" id="8_hxpk7"]
 [ext_resource type="Script" path="res://Scenes/main menu/message options.gd" id="8_rkrys"]
 [ext_resource type="PackedScene" uid="uid://cyawn4fsopql5" path="res://Scenes/escape menu/escape_menu.tscn" id="9_62akp"]
 [ext_resource type="PackedScene" uid="uid://bmfbdamx2iue1" path="res://minigames/summoning_point/summoning_point.tscn" id="9_t55be"]
@@ -199,6 +200,9 @@ label_settings = SubResource("LabelSettings_yb225")
 horizontal_alignment = 2
 vertical_alignment = 2
 
+[node name="select" type="AudioStreamPlayer" parent="message playgame"]
+stream = ExtResource("8_hxpk7")
+
 [node name="message options" type="CanvasLayer" parent="."]
 visible = false
 script = ExtResource("8_rkrys")
@@ -293,6 +297,9 @@ text = "v"
 label_settings = SubResource("LabelSettings_yb225")
 horizontal_alignment = 2
 vertical_alignment = 2
+
+[node name="select" type="AudioStreamPlayer" parent="message options"]
+stream = ExtResource("8_hxpk7")
 
 [node name="StrategemHero" parent="." instance=ExtResource("9_t55be")]
 position = Vector2(-56, 12)
