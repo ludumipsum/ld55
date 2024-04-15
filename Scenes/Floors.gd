@@ -2,30 +2,32 @@ extends Node2D
 
 signal change_floors(to: int)
 
-@export var active_floor: int = 3
+@export var floor_spread: float = 10000
+@export_enum("Executive Offices", "Cube Farm", "Lobby", "Basement") var active_floor: int = 0
 var floors: Array[Node2D] = []
+var active_locations: Array[Vector2] = []
+var banishment_locations: Array[Vector2] = []
 
 func initialize_floors():
-	for node in self.get_children():
-		floors.push_back(node)
-		self.remove_child(node)
+	## Move all the floors off to their own unique off-screen location
+	var idx = 0;
+	for floor_node in self.get_children():
+		# Save the floor to the local list so we can recall it later
+		floors.push_back(floor_node)
+		# Banish each floor to its corner
+		var banishment_location = Vector2(-floor_spread, idx * -floor_spread)
+		banishment_locations.push_back(banishment_location)
+		active_locations.push_back(floor_node.position)
+		floor_node.position = banishment_location
+		# increment the y-banishment offset
+		idx += 1
 
 func change_floor_to(to: int):
-	# Put the current floor on the shelf
-	var children = self.get_children()
-	match children.size():
-		0:
-			pass
-		1:
-			var floor_to_reinsert = children.pop_front()
-			self.remove_child(floor_to_reinsert)
-			floors.insert(active_floor, floor_to_reinsert)
-		var N:
-			printerr("got too many floor children: ", N)
-		
-	# Take out the new floor and put it in the scene
+	# Put away the currently active floor
+	floors[active_floor].position = banishment_locations[active_floor]
+	# Swap in the new one
 	active_floor = to
-	self.add_child(floors.pop_at(active_floor))
+	floors[to].position = active_locations[to]
 	change_floors.emit(active_floor)
 
 # Called when the node enters the scene tree for the first time.
