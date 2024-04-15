@@ -35,16 +35,22 @@ color = Color(0.129558, 0.129559, 0.129558, 0.533333)
 
 [node name="Floors" type="Node2D" parent="."]
 script = ExtResource("2_r30v5")
-active_floor = 3
 
 [node name="Executive Offices" parent="Floors" instance=ExtResource("2_44yaa")]
+visible = false
 
 [node name="Cube Farm" parent="Floors" instance=ExtResource("2_44yaa")]
 
 [node name="Lobby" parent="Floors" instance=ExtResource("2_44yaa")]
-position = Vector2(-375, -164)
+position = Vector2(-899, -164)
 
 [node name="Basement" parent="Floors" instance=ExtResource("2_o43cl")]
+position = Vector2(-179.69, 10.6442)
+
+[node name="MinimapViewport" type="SubViewport" parent="Floors/Basement"]
+transparent_bg = true
+
+[node name="MinimapCam" type="Camera2D" parent="Floors/Basement/MinimapViewport"]
 position = Vector2(-179.69, 10.6442)
 
 [node name="Elevator" parent="." instance=ExtResource("5_r8e04")]

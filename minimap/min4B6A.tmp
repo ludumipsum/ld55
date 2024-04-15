@@ -23,6 +23,12 @@ size = Vector2i(240, 320)
 
 [node name="Floor Stack" type="Node3D" parent="Viewport"]
 script = ExtResource("2_8d44v")
+active_floor = null
+active_floor_spread = null
+inactive_floor_spread = null
+
+[node name="FloorViewportPrototype" type="SubViewport" parent="Viewport/Floor Stack"]
+disable_3d = true
 
 [node name="FloorQuadPrototype" type="MeshInstance3D" parent="Viewport/Floor Stack"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
@@ -30,12 +36,15 @@ visible = false
 material_override = SubResource("ShaderMaterial_7dk6s")
 mesh = SubResource("QuadMesh_1okjb")
 
+[node name="FloorCameraPrototype" type="Camera2D" parent="Viewport/Floor Stack"]
+
 [node name="Node3D" type="Node3D" parent="Viewport"]
 transform = Transform3D(1, 0, 0, 0, 0.980015, 0.198923, 0, -0.198923, 0.980015, 1, 1, 1)
 
 [node name="Camera3D" type="Camera3D" parent="Viewport/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, 0, 1.49012e-08, 1, -1, 0, 0)
+transform = Transform3D(0.708528, -0.13833, 0.691992, 0.139563, 0.988699, 0.0547441, -0.691744, 0.0577887, 0.719827, 0, 0.25, 0.062)
 keep_aspect = 0
+projection = 1
 current = true
 size = 1.8
 
