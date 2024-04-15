@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://0bg1oug1pvh"]
+
+[ext_resource type="Script" path="res://minigames/void_spirit/summon_void_spirit.gd" id="1_0i8jy"]
+[ext_resource type="PackedScene" uid="uid://b7uau33tv70c7" path="res://minigames/overlay_frame.tscn" id="2_wkpfk"]
+[ext_resource type="FontFile" uid="uid://c25dx12ryq4uf" path="res://Fonts/dogicapixel.ttf" id="3_dxnq4"]
+[ext_resource type="Script" path="res://minigames/void_spirit/DrawTarget.gd" id="3_yuolc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dwao8"]
+font = ExtResource("3_dxnq4")
+
+[node name="SummonVoidSpirit" type="Node2D" node_paths=PackedStringArray("label")]
+script = ExtResource("1_0i8jy")
+label = NodePath("DrawTarget/Label")
+
+[node name="Minigame Frame" parent="." instance=ExtResource("2_wkpfk")]
+
+[node name="DrawTarget" type="Node2D" parent="."]
+position = Vector2(49, -22)
+script = ExtResource("3_yuolc")
+
+[node name="Label" type="Label" parent="DrawTarget"]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_dwao8")

@@ -305,7 +305,7 @@ stream = ExtResource("8_hxpk7")
 position = Vector2(-56, 12)
 start_active = true
 always_active = true
-spirits_required = Array[int]([5, 2])
+spirits_required = Array[int]([7, 5])
 
 [node name="escape menu" parent="." instance=ExtResource("9_62akp")]
 

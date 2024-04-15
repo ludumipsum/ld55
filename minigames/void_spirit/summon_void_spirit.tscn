@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://0bg1oug1pvh"]
+
+[ext_resource type="Script" path="res://minigames/void_spirit/summon_void_spirit.gd" id="1_0i8jy"]
+[ext_resource type="PackedScene" uid="uid://b7uau33tv70c7" path="res://minigames/overlay_frame.tscn" id="2_wkpfk"]
+[ext_resource type="Script" path="res://minigames/void_spirit/DrawTarget.gd" id="3_yuolc"]
+
+[node name="SummonVoidSpirit" type="Node2D" node_paths=PackedStringArray("draw_target")]
+script = ExtResource("1_0i8jy")
+draw_target = NodePath("Draw Target")
+
+[node name="Minigame Frame" parent="." instance=ExtResource("2_wkpfk")]
+
+[node name="Draw Target" type="Node2D" parent="."]
+script = ExtResource("3_yuolc")

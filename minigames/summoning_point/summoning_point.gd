@@ -25,6 +25,7 @@ var remaining_spirit_elements: Array[Spirit.Element] = []
 @onready var spirit = load("res://minigames/spirit/spirit.tscn")
 @onready var fire_minigame = load("res://minigames/fire_spirit/summon_fire_spirit.tscn")
 @onready var wind_minigame = load("res://minigames/wind_spirit/summon_wind_spirit.tscn")
+@onready var void_minigame = load("res://minigames/void_spirit/summon_void_spirit.tscn")
 @onready var lifespan: Timer = $LifespanTimer
 @onready var viewport: SubViewport = $MinigameViewport
 @onready var canvas: Sprite2D = $MinigameCanvas
@@ -78,7 +79,7 @@ func _instantiate_summoning_minigame(spirit: Spirit.Element):
 		Spirit.Element.Writing:
 			printerr("minigame not implemented")
 		Spirit.Element.Void:
-			printerr("minigame not implemented")
+			instance = void_minigame.instantiate()
 		var otherwise:
 			printerr("tried to instantiate unknown spirit summoning ritual: ", otherwise)
 	return instance
