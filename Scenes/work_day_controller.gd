@@ -48,7 +48,7 @@ func update_player_compass():
 			nearest_distance = dist
 	player.show_compass(nearest_active)
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	update_player_compass()
 
 func _ready():
