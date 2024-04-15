@@ -29,7 +29,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../CanvasLayer/Day UI/ProgressIndicator:color")
+tracks/1/path = NodePath("../CanvasLayer/Day UI/VBoxContainer/ClockRow/ProgressIndicator:color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -75,11 +75,57 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ProgressIndicator" type="ColorRect" parent="CanvasLayer/Day UI"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Day UI"]
+layout_mode = 0
+offset_right = 182.0
+offset_bottom = 82.0
+color = Color(0, 0, 0, 0.635294)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Day UI"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="ClockRow" type="HBoxContainer" parent="CanvasLayer/Day UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Day UI/VBoxContainer/ClockRow"]
+layout_mode = 2
+text = "Solar Clock:"
+
+[node name="ProgressIndicator" type="ColorRect" parent="CanvasLayer/Day UI/VBoxContainer/ClockRow"]
+layout_mode = 2
 color = Color(0.345098, 0.203922, 0.0627451, 1)
+
+[node name="ActiveSpiritsRow" type="HBoxContainer" parent="CanvasLayer/Day UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Day UI/VBoxContainer/ActiveSpiritsRow"]
+layout_mode = 2
+text = "Open Work Orders:"
+
+[node name="ActiveSpiritsNumber" type="Label" parent="CanvasLayer/Day UI/VBoxContainer/ActiveSpiritsRow"]
+layout_mode = 2
+text = "#"
+
+[node name="ProgressRow" type="HBoxContainer" parent="CanvasLayer/Day UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Day UI/VBoxContainer/ProgressRow"]
+layout_mode = 2
+text = "Spirits Summoned:"
+
+[node name="SummonedSpiritsNumber" type="Label" parent="CanvasLayer/Day UI/VBoxContainer/ProgressRow"]
+layout_mode = 2
+text = "0"
+
+[node name="Slash" type="Label" parent="CanvasLayer/Day UI/VBoxContainer/ProgressRow"]
+layout_mode = 2
+text = "/"
+
+[node name="TotalSpiritsNumber" type="Label" parent="CanvasLayer/Day UI/VBoxContainer/ProgressRow"]
+layout_mode = 2
+text = "0"
 
 [node name="Floors" type="Node2D" parent="."]
 script = ExtResource("2_r30v5")
@@ -115,10 +161,13 @@ script = ExtResource("9_rb8vs")
 
 [node name="escape menu" parent="." instance=ExtResource("7_0khle")]
 
-[node name="WorkDayController" type="Node" parent="." node_paths=PackedStringArray("floors_list_root", "player")]
+[node name="WorkDayController" type="Node" parent="." node_paths=PackedStringArray("floors_list_root", "player", "summoned_spirits_counter", "total_spirits_counter", "active_spirits_counter")]
 script = ExtResource("8_rgfby")
 floors_list_root = NodePath("../Floors")
 player = NodePath("../Player Character")
+summoned_spirits_counter = NodePath("../CanvasLayer/Day UI/VBoxContainer/ProgressRow/SummonedSpiritsNumber")
+total_spirits_counter = NodePath("../CanvasLayer/Day UI/VBoxContainer/ProgressRow/TotalSpiritsNumber")
+active_spirits_counter = NodePath("../CanvasLayer/Day UI/VBoxContainer/ActiveSpiritsRow/ActiveSpiritsNumber")
 activation_period = 20.5225
 
 [node name="ActivationTimer" type="Timer" parent="WorkDayController"]

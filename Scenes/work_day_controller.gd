@@ -4,6 +4,9 @@ class_name WorkDayController
 ## The root of the game's playable area, the floors list
 @export var floors_list_root: FloorsList
 @export var player: PlayerCharacter
+@export var summoned_spirits_counter: Label
+@export var total_spirits_counter: Label
+@export var active_spirits_counter: Label
 
 ## How long we wait in between each summoning point activation
 @export_group("Work Day Parameters")
@@ -13,6 +16,10 @@ class_name WorkDayController
 @onready var summoning_points: Array[SummoningPoint] = scan_summoning_points(floors_list_root)
 @onready var summoning_points_by_floor: Array = scan_summoning_points_by_floor(floors_list_root)
 @onready var activation_timer = $ActivationTimer
+
+var nr_total = 0
+var nr_summoned = 0
+var nr_active = 0
 
 func scan_summoning_points(root: Node):
 	## Find all summoning points in the scene graph below this node
@@ -50,8 +57,10 @@ func update_player_compass():
 	
 func _physics_process(_delta):
 	update_player_compass()
+	update_labels()
 
 func _ready():
+	randomize()
 	link_common_signals()
 
 func link_common_signals():
@@ -62,6 +71,8 @@ func link_common_signals():
 		point.timeout.connect(self._on_summon_failed)
 
 func activate_random():
+	nr_active += 1
+	nr_total += 1
 	var inactive_points = []
 	for point in summoning_points:
 		if not point.is_active():
@@ -69,6 +80,11 @@ func activate_random():
 	var next = randi() % inactive_points.size()
 	inactive_points[next].activate()
 	print("chose %s" % inactive_points[next])
+
+func update_labels():
+	summoned_spirits_counter.text = "%d" % nr_summoned
+	total_spirits_counter.text = "%d" % nr_total
+	active_spirits_counter.text = "%d" % nr_active
 
 # ##############################################################################
 # Signal Handlers
@@ -94,8 +110,9 @@ func _on_activation_timer_timeout():
 
 func _on_summon_complete():
 	## When the player finishes a summon in time
+	nr_summoned += 1
 	print("spirit summoned!")
 
 func _on_summon_failed():
 	## When the player fails to finish a summon in time
-	printerr("TODO: implement score decrementing when an activation point times out")
+	print("TODO: implement score decrementing when an activation point times out")
