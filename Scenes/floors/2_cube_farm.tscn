@@ -1,6 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://die5rb3xl1ijn"]
+[gd_scene load_steps=27 format=3 uid="uid://dai1d0ek85n11"]
 
-[ext_resource type="TileSet" uid="uid://clnir5owme65t" path="res://unsorted_assets/Office_Tiles/default.tres" id="1_2j3ft"]
+[ext_resource type="TileSet" uid="uid://27f0bbs88u7l" path="res://unsorted_assets/Office_Tiles/default.tres" id="1_2j3ft"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53v8g"]
 size = Vector2(199, 25)

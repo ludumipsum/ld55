@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://d3i3lnbgey12t"]
+[gd_scene load_steps=13 format=3 uid="uid://d3i3lnbgey12t"]
 
 [ext_resource type="PackedScene" uid="uid://cgy3g0ln4qwjp" path="res://Scenes/player/player.tscn" id="1_tt05s"]
 [ext_resource type="PackedScene" uid="uid://c6ddeod3clnwv" path="res://Scenes/floors/1_lobby.tscn" id="2_44yaa"]
 [ext_resource type="PackedScene" uid="uid://bfpny4cpk66h6" path="res://Scenes/floors/0_basement.tscn" id="2_o43cl"]
 [ext_resource type="Script" path="res://Scenes/Floors.gd" id="2_r30v5"]
-[ext_resource type="PackedScene" uid="uid://die5rb3xl1ijn" path="res://Scenes/floors/2_cube_farm.tscn" id="4_4xyus"]
+[ext_resource type="PackedScene" uid="uid://c2q1a12r1n0w6" path="res://Scenes/floors/3_executive.tscn" id="3_0ly1q"]
+[ext_resource type="PackedScene" uid="uid://dai1d0ek85n11" path="res://Scenes/floors/2_cube_farm.tscn" id="4_4xyus"]
 [ext_resource type="PackedScene" uid="uid://b76o8i6k6ti4g" path="res://minimap/minimap.tscn" id="4_7jnv1"]
 [ext_resource type="PackedScene" uid="uid://bsjyjb5jo0x08" path="res://Scenes/elevator/elevator.tscn" id="5_r8e04"]
 [ext_resource type="PackedScene" uid="uid://cyawn4fsopql5" path="res://Scenes/escape menu/escape_menu.tscn" id="7_0khle"]
@@ -83,7 +84,8 @@ color = Color(0.345098, 0.203922, 0.0627451, 1)
 script = ExtResource("2_r30v5")
 active_floor = 3
 
-[node name="Executive Offices" parent="Floors" instance=ExtResource("2_44yaa")]
+[node name="Executive Offices" parent="Floors" instance=ExtResource("3_0ly1q")]
+position = Vector2(-186, -84)
 
 [node name="Cube Farm" parent="Floors" instance=ExtResource("4_4xyus")]
 position = Vector2(-357, -149)
