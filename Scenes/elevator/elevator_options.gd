@@ -56,7 +56,6 @@ func _process(_delta):
 			select.play()
 			down_select()
 		if Input.is_action_just_pressed("action") == true:
-			select.play()
 			action()
 	else:
 		pass
