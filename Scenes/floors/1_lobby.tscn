@@ -1,5 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://c6ddeod3clnwv"]
+[gd_scene load_steps=30 format=3 uid="uid://c6ddeod3clnwv"]
 
+[ext_resource type="Script" path="res://Scenes/floors/1_lobby.gd" id="1_oclsj"]
 [ext_resource type="Texture2D" uid="uid://d4id33ojax1om" path="res://unsorted_assets/modern_interiors_by_theme/Tilesets_16x16.png" id="1_yktwe"]
 [ext_resource type="Texture2D" uid="uid://dvt7r0lq7tsoh" path="res://unsorted_assets/Room_Builder_Floor_Paths_16x16.png" id="2_pfhxb"]
 [ext_resource type="TileSet" uid="uid://27f0bbs88u7l" path="res://unsorted_assets/Office_Tiles/default.tres" id="3_1554u"]
@@ -2371,6 +2372,7 @@ size = Vector2(149.034, 14.6675)
 size = Vector2(92, 14.6675)
 
 [node name="Lobby" type="Node2D"]
+script = ExtResource("1_oclsj")
 metadata/_edit_horizontal_guides_ = [287.0]
 
 [node name="TileMap" type="TileMap" parent="."]

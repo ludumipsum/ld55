@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://c2q1a12r1n0w6"]
+[gd_scene load_steps=15 format=3 uid="uid://c2q1a12r1n0w6"]
 
+[ext_resource type="Script" path="res://Scenes/floors/3_executive.gd" id="1_pvok5"]
 [ext_resource type="TileSet" uid="uid://ces2lmlcs0bhd" path="res://unsorted_assets/Office_Tiles/office_tile_set.tres" id="1_r5qii"]
 [ext_resource type="TileSet" uid="uid://cvw8psorbl34n" path="res://unsorted_assets/Office_Tiles/office_objects.tres" id="2_xb1fe"]
 
@@ -37,6 +38,7 @@ size = Vector2(172.094, 6.25)
 size = Vector2(5.04688, 108.125)
 
 [node name="Executive Floor" type="Node2D"]
+script = ExtResource("1_pvok5")
 
 [node name="TileMap2" type="TileMap" parent="."]
 position = Vector2(0, 15)

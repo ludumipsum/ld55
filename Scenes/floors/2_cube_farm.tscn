@@ -1,6 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://dai1d0ek85n11"]
+[gd_scene load_steps=28 format=3 uid="uid://dai1d0ek85n11"]
 
 [ext_resource type="TileSet" uid="uid://27f0bbs88u7l" path="res://unsorted_assets/Office_Tiles/default.tres" id="1_2j3ft"]
+[ext_resource type="Script" path="res://Scenes/floors/2_cube_farm.gd" id="1_f87ac"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53v8g"]
 size = Vector2(199, 25)
@@ -78,6 +79,7 @@ size = Vector2(58, 17)
 size = Vector2(13, 17)
 
 [node name="2CubeFarm" type="Node2D"]
+script = ExtResource("1_f87ac")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_2j3ft")
