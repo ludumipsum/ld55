@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsvp7o4btxgig"]
+
+[ext_resource type="Script" path="res://minigames/water_spirit/summon_water_spirit.gd" id="1_hg7x7"]
+[ext_resource type="PackedScene" uid="uid://b7uau33tv70c7" path="res://minigames/overlay_frame.tscn" id="2_6f5sp"]
+[ext_resource type="Script" path="res://minigames/water_spirit/player_sigil.gd" id="3_wn0n1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e0d64"]
+
+[node name="SummonWaterSpirit" type="Node2D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_hg7x7")
+player = NodePath("PlayerSigil")
+
+[node name="Minigame Frame" parent="." instance=ExtResource("2_6f5sp")]
+
+[node name="PlayerSigil" type="CharacterBody2D" parent="."]
+script = ExtResource("3_wn0n1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerSigil"]
+shape = SubResource("CircleShape2D_e0d64")

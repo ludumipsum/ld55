@@ -25,6 +25,7 @@ var remaining_spirit_elements: Array[Spirit.Element] = []
 @onready var spirit = load("res://minigames/spirit/spirit.tscn")
 @onready var fire_minigame = load("res://minigames/fire_spirit/summon_fire_spirit.tscn")
 @onready var wind_minigame = load("res://minigames/wind_spirit/summon_wind_spirit.tscn")
+@onready var water_minigame = load("res://minigames/water_spirit/summon_water_spirit.tscn")
 @onready var void_minigame = load("res://minigames/void_spirit/summon_void_spirit.tscn")
 @onready var lifespan: Timer = $LifespanTimer
 @onready var viewport: SubViewport = $MinigameViewport
@@ -77,7 +78,7 @@ func _instantiate_summoning_minigame(spirit: Spirit.Element):
 			box.show()
 			message.text = "Strike the flint when the box is closed to summon a fire spirit!"
 		Spirit.Element.Water:
-			printerr("minigame not implemented")
+			instance = water_minigame.instantiate()
 		Spirit.Element.Earth:
 			printerr("minigame not implemented")
 		Spirit.Element.Air:
