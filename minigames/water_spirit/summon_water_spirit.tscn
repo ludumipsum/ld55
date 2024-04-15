@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsvp7o4btxgig"]
+
+[ext_resource type="Script" path="res://minigames/water_spirit/summon_water_spirit.gd" id="1_hg7x7"]
+[ext_resource type="PackedScene" uid="uid://b7uau33tv70c7" path="res://minigames/overlay_frame.tscn" id="2_6f5sp"]
+[ext_resource type="Script" path="res://minigames/water_spirit/player_sigil.gd" id="3_wn0n1"]
+[ext_resource type="AudioStream" uid="uid://cvhk54p5666ob" path="res://minigames/water_spirit/bloop.wav" id="4_xmfey"]
+[ext_resource type="AudioStream" uid="uid://dqvcmsohxx1ow" path="res://minigames/water_spirit/splash.wav" id="5_ypg0i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e0d64"]
+
+[node name="SummonWaterSpirit" type="Node2D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_hg7x7")
+player = NodePath("PlayerSigil")
+
+[node name="Minigame Frame" parent="." instance=ExtResource("2_6f5sp")]
+
+[node name="PlayerSigil" type="CharacterBody2D" parent="."]
+script = ExtResource("3_wn0n1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerSigil"]
+shape = SubResource("CircleShape2D_e0d64")
+
+[node name="bloop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_xmfey")
+
+[node name="splash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ypg0i")
