@@ -2,6 +2,7 @@ extends Node
 class_name WorkDayController
 
 signal new_work_order(text)
+signal day_over(summoned, total)
 
 ## The root of the game's playable area, the floors list
 @export var floors_list_root: FloorsList
@@ -112,7 +113,7 @@ func _on_work_day_end():
 	## When the work day ends!
 	## This is the end of the game, so we should play some sound or something,
 	## and transition to whatever postgame summary and/or credits we want to do
-	printerr("the game's over!")
+	day_over.emit(nr_summoned, nr_total)
 
 func _on_activation_timer_timeout():
 	## When the activation timer indicates we need to activate another puzzle

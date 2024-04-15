@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d3i3lnbgey12t"]
+[gd_scene load_steps=23 format=3 uid="uid://d3i3lnbgey12t"]
 
 [ext_resource type="PackedScene" uid="uid://cgy3g0ln4qwjp" path="res://Scenes/player/player.tscn" id="1_tt05s"]
 [ext_resource type="PackedScene" uid="uid://c6ddeod3clnwv" path="res://Scenes/floors/1_lobby.tscn" id="2_44yaa"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://cyawn4fsopql5" path="res://Scenes/escape menu/escape_menu.tscn" id="7_0khle"]
 [ext_resource type="Script" path="res://Scenes/work_day_controller.gd" id="8_rgfby"]
 [ext_resource type="Script" path="res://Scenes/room_sizer.gd" id="9_rb8vs"]
+[ext_resource type="Script" path="res://Scenes/GameOver.gd" id="14_ant0h"]
+[ext_resource type="FontFile" uid="uid://ce3om1rv7cdjs" path="res://Fonts/dogicapixelbold.ttf" id="15_enhuq"]
 
 [sub_resource type="Theme" id="Theme_x08o5"]
 default_font = ExtResource("2_upyyi")
@@ -119,6 +121,9 @@ tracks/2/keys = {
 _data = {
 "work_day": SubResource("Animation_qwhys")
 }
+
+[sub_resource type="Theme" id="Theme_w2vym"]
+default_font = ExtResource("15_enhuq")
 
 [node name="The Office" type="Node2D"]
 
@@ -275,7 +280,6 @@ clock_label = NodePath("../CanvasLayer/Day UI/VBoxContainer/ClockRow/ClockText")
 summoned_spirits_counter = NodePath("../CanvasLayer/Day UI/VBoxContainer/ProgressRow/SummonedSpiritsNumber")
 total_spirits_counter = NodePath("../CanvasLayer/Day UI/VBoxContainer/ProgressRow/TotalSpiritsNumber")
 active_spirits_counter = NodePath("../CanvasLayer/Day UI/VBoxContainer/ActiveSpiritsRow/ActiveSpiritsNumber")
-activation_period = 15.0
 
 [node name="ActivationTimer" type="Timer" parent="WorkDayController"]
 wait_time = 5.0
@@ -287,10 +291,97 @@ libraries = {
 }
 autoplay = "work_day"
 
+[node name="GameOver" type="CanvasLayer" parent="."]
+script = ExtResource("14_ant0h")
+
+[node name="Control" type="Control" parent="GameOver"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_w2vym")
+
+[node name="ColorRect" type="ColorRect" parent="GameOver/Control"]
+layout_mode = 0
+offset_left = -572.0
+offset_top = -313.0
+offset_right = 629.0
+offset_bottom = 363.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -20.0
+offset_right = 165.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="GameOver/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.494118, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Congratulations, another day in the books!"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameOver/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="GameOver/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.494118, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "You summoned"
+
+[node name="NrSummoned" type="Label" parent="GameOver/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.494118, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "#"
+
+[node name="Label4" type="Label" parent="GameOver/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.494118, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "out of"
+
+[node name="NrTotal" type="Label" parent="GameOver/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.494118, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "#"
+
+[node name="Label6" type="Label" parent="GameOver/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.494118, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "spirits today."
+
+[node name="Label2" type="Label" parent="GameOver/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.494118, 0.494118, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Try for more tomorrow!"
+
 [connection signal="change_floors" from="Floors" to="CanvasLayer/Control/Minimap" method="change_floor_to"]
 [connection signal="change_floors" from="Floors" to="Player Character/Camera2D" method="_on_floors_change_floors"]
 [connection signal="change_floor_to" from="Elevator" to="Floors" method="change_floor_to"]
 [connection signal="dialog_opened_closed" from="Elevator" to="Player Character" method="freeze"]
+[connection signal="day_over" from="WorkDayController" to="GameOver" method="_on_game_over"]
 [connection signal="new_work_order" from="WorkDayController" to="CanvasLayer/Important Info Ticker" method="show_info"]
 [connection signal="timeout" from="WorkDayController/ActivationTimer" to="WorkDayController" method="_on_activation_timer_timeout"]
 [connection signal="animation_finished" from="WorkDayController/DifficultyAndTimeCurves" to="WorkDayController" method="_on_difficulty_anim"]
