@@ -12,7 +12,6 @@ func _ready():
 	pass
 
 func hide_textbox():
-	text.text = ""
 	textbox.hide()
 	seen = false
 
