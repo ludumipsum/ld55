@@ -32,6 +32,7 @@ var remaining_spirit_elements: Array[Spirit.Element] = []
 
 ## The spirit we summoned!
 var little_guy: Spirit
+var interact_disabled: bool = false
 
 func is_active():
 	## Is this summoning point currently active?
@@ -50,6 +51,7 @@ func reset():
 	## Reset this summoning point to wait for its next activation
 	lifespan.stop()
 	canvas.hide()
+	interact_disabled = false
 	if little_guy:
 		self.remove_child(little_guy)
 	remaining_spirit_elements = spirits_required.duplicate()
@@ -123,6 +125,7 @@ func _on_puzzle_finished():
 	# HACK: if this is the last spirit, let the player run around while he blobs
 	if remaining_spirit_elements.size() == 1:
 		toggle_inputs.emit()
+		interact_disabled = true
 
 func _on_spirit_animation_done():
 	## Signal handler: when a spirit summoning animation is done
@@ -147,6 +150,8 @@ func _on_puzzle_canceled():
 	toggle_inputs.emit()
 
 func _on_player_contact(body: Node2D):
+	if interact_disabled:
+		return
 	if !(body is PlayerCharacter):
 		return
 	## Signal handler: when the player came into contact with our trigger area
