@@ -2553,16 +2553,85 @@ position = Vector2(279.641, 169)
 shape = SubResource("RectangleShape2D_6stwv")
 
 [node name="UpSinkRight" parent="." instance=ExtResource("8_281f0")]
-position = Vector2(589, 29)
+position = Vector2(514, 138)
 spirits_required = Array[int]([7, 5])
 
 [node name="UpSinkLeft" parent="." instance=ExtResource("8_281f0")]
-position = Vector2(557, 29)
+position = Vector2(445, 138)
 spirits_required = Array[int]([7, 5])
 
 [node name="ComputerTopRight" parent="." instance=ExtResource("8_281f0")]
-position = Vector2(308, 48)
+position = Vector2(311, 51)
 spirits_required = Array[int]([2, 7, 2])
 
 [node name="VendingMachineLeft" parent="." instance=ExtResource("8_281f0")]
-position = Vector2(93, 177)
+position = Vector2(96, 170)
+
+[node name="SummoningPoint" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(507, 215)
+
+[node name="SummoningPoint2" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(427, 215)
+
+[node name="SummoningPoint3" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(408, 215)
+
+[node name="SummoningPoint4" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(446, 215)
+
+[node name="SummoningPoint5" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(488, 215)
+
+[node name="SummoningPoint6" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(526, 215)
+
+[node name="SummoningPoint7" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(557, 200)
+
+[node name="SummoningPoint8" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(589, 200)
+
+[node name="SummoningPoint9" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(498, 312)
+
+[node name="SummoningPoint10" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(429, 312)
+
+[node name="SummoningPoint11" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(464, 314)
+
+[node name="SummoningPoint12" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(328, 169)
+
+[node name="SummoningPoint13" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(288, 170)
+
+[node name="SummoningPoint14" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(119, 170)
+
+[node name="SummoningPoint15" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(142, 170)
+
+[node name="SummoningPoint16" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(55, 170)
+
+[node name="SummoningPoint17" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(265, 170)
+
+[node name="SummoningPoint18" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(242, 170)
+
+[node name="SummoningPoint19" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(247, 51)
+
+[node name="SummoningPoint20" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(134, 52)
+
+[node name="SummoningPoint21" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(71, 52)
+
+[node name="SummoningPoint22" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(104, 26)
+
+[node name="SummoningPoint23" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(280, 27)

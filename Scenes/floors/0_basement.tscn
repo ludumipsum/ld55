@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bfpny4cpk66h6"]
+[gd_scene load_steps=14 format=3 uid="uid://bfpny4cpk66h6"]
 
 [ext_resource type="Script" path="res://Scenes/floors/0_basement.gd" id="1_i8hr1"]
 [ext_resource type="TileSet" uid="uid://27f0bbs88u7l" path="res://unsorted_assets/Office_Tiles/default.tres" id="1_xvvmu"]
+[ext_resource type="PackedScene" uid="uid://bmfbdamx2iue1" path="res://minigames/summoning_point/summoning_point.tscn" id="3_l3vtq"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_j3usa"]
 a = Vector2(-20, -154)
@@ -99,3 +100,15 @@ shape = SubResource("RectangleShape2D_avvx6")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="walls"]
 position = Vector2(-251, -35)
 shape = SubResource("SegmentShape2D_j3usa")
+
+[node name="SummoningPoint" parent="." instance=ExtResource("3_l3vtq")]
+position = Vector2(-161, -116)
+
+[node name="SummoningPoint2" parent="." instance=ExtResource("3_l3vtq")]
+position = Vector2(-120, -87)
+
+[node name="SummoningPoint3" parent="." instance=ExtResource("3_l3vtq")]
+position = Vector2(-72, -87)
+
+[node name="SummoningPoint4" parent="." instance=ExtResource("3_l3vtq")]
+position = Vector2(-33, -118)

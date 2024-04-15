@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/floors/3_executive.gd" id="1_pvok5"]
 [ext_resource type="TileSet" uid="uid://ces2lmlcs0bhd" path="res://unsorted_assets/Office_Tiles/office_tile_set.tres" id="1_r5qii"]
 [ext_resource type="TileSet" uid="uid://cvw8psorbl34n" path="res://unsorted_assets/Office_Tiles/office_objects.tres" id="2_xb1fe"]
-[ext_resource type="PackedScene" uid="uid://cgy3g0ln4qwjp" path="res://Scenes/player/player.tscn" id="4_8trkm"]
+[ext_resource type="PackedScene" uid="uid://bmfbdamx2iue1" path="res://minigames/summoning_point/summoning_point.tscn" id="4_a2pjh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ns88w"]
 size = Vector2(16, 55)
@@ -56,19 +56,6 @@ layer_0/tile_data = PackedInt32Array(-327683, 0, 14, -262147, 0, 15, -327682, 65
 tile_set = ExtResource("2_xb1fe")
 format = 2
 layer_0/tile_data = PackedInt32Array(-327678, 786432, 45, -262142, 786432, 46, -196612, 65536, 53, -131076, 65536, 54, -65540, 0, 53, -4, 0, 54, -327686, 720896, 55, -262150, 720896, 56, -196614, 786432, 58, -131078, 786432, 74, -65542, 786432, 74, -6, 720896, 55, 65530, 720896, 56, 131066, 786432, 58, -131077, 851968, 74, -65541, 851968, 74, -65531, 786432, 67, -131067, 786432, 66, -65530, 655360, 44, 6, 655360, 45, 65542, 655360, 46, -65529, 720896, 44, 7, 720896, 45, 65543, 720896, 46)
-
-[node name="Player Character" parent="TileMap2/TileMap" instance=ExtResource("4_8trkm")]
-position = Vector2(87, -32)
-
-[node name="Camera2D" type="Camera2D" parent="TileMap2/TileMap/Player Character"]
-position = Vector2(-2, 9)
-zoom = Vector2(2.75, 2.75)
-limit_left = -390
-limit_top = -190
-limit_right = 255
-limit_bottom = 205
-position_smoothing_enabled = true
-position_smoothing_speed = 10.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -123,3 +110,21 @@ shape = SubResource("RectangleShape2D_tkpy8")
 [node name="CollisionShape2D12" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(131, -7)
 shape = SubResource("RectangleShape2D_tkpy8")
+
+[node name="SummoningPoint" parent="." instance=ExtResource("4_a2pjh")]
+position = Vector2(-32, -60)
+
+[node name="SummoningPoint2" parent="." instance=ExtResource("4_a2pjh")]
+position = Vector2(-89, -59)
+
+[node name="SummoningPoint3" parent="." instance=ExtResource("4_a2pjh")]
+position = Vector2(-89, 21)
+
+[node name="SummoningPoint4" parent="." instance=ExtResource("4_a2pjh")]
+position = Vector2(103, -8)
+
+[node name="SummoningPoint5" parent="." instance=ExtResource("4_a2pjh")]
+position = Vector2(112, 23)
+
+[node name="SummoningPoint6" parent="." instance=ExtResource("4_a2pjh")]
+position = Vector2(40, -52)
