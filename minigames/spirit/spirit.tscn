@@ -1,11 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b56p5qqanebxg"]
+[gd_scene load_steps=7 format=3 uid="uid://b56p5qqanebxg"]
 
-[ext_resource type="Texture2D" uid="uid://dh2ked1kvsexc" path="res://unsorted_assets/Gray Slime Spritesheet.png" id="1_ycf76"]
+[ext_resource type="Script" path="res://minigames/spirit/spirit.gd" id="1_hhyi4"]
+[ext_resource type="Texture2D" uid="uid://dh2ked1kvsexc" path="res://unsorted_assets/Gray Slime Spritesheet.png" id="2_gii0u"]
 
-[sub_resource type="Animation" id="Animation_gfo3a"]
-resource_name = "summon"
-length = 1.4
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_2m8np"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -13,10 +12,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [54, 53, 52, 51, 50, 49]
+"values": [3]
 }
 
 [sub_resource type="Animation" id="Animation_ymmfi"]
@@ -36,8 +35,9 @@ tracks/0/keys = {
 "values": [3, 4, 5, 6, 7]
 }
 
-[sub_resource type="Animation" id="Animation_2m8np"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_gfo3a"]
+resource_name = "summon"
+length = 1.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -45,10 +45,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [3]
+"values": [54, 53, 52, 51, 50, 49]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f4r4i"]
@@ -58,10 +58,12 @@ _data = {
 "summon": SubResource("Animation_gfo3a")
 }
 
-[node name="SpiritSummon" type="Node2D"]
+[node name="Spirit" type="Node2D"]
+script = ExtResource("1_hhyi4")
+element = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_ycf76")
+texture = ExtResource("2_gii0u")
 hframes = 23
 vframes = 8
 frame = 3
