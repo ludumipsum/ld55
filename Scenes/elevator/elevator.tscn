@@ -32,7 +32,7 @@ atlas = ExtResource("4_5lkxt")
 region = Rect2(66, 448, 6, 9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xu6tm"]
-size = Vector2(45, 15.5)
+size = Vector2(32, 6.75)
 
 [node name="Elevator" type="Node2D"]
 script = ExtResource("1_vrcae")
@@ -149,7 +149,7 @@ texture = SubResource("AtlasTexture_mr856")
 [node name="trigger_options" type="Area2D" parent="Elevator Doors"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Elevator Doors/trigger_options"]
-position = Vector2(0, 13)
+position = Vector2(0, 8.625)
 shape = SubResource("RectangleShape2D_xu6tm")
 
 [node name="elevator" type="AudioStreamPlayer" parent="."]
