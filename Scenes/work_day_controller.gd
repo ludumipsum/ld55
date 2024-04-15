@@ -4,6 +4,7 @@ class_name WorkDayController
 ## The root of the game's playable area, the floors list
 @export var floors_list_root: FloorsList
 @export var player: PlayerCharacter
+@export var clock_label: Label
 @export var summoned_spirits_counter: Label
 @export var total_spirits_counter: Label
 @export var active_spirits_counter: Label
@@ -11,6 +12,7 @@ class_name WorkDayController
 ## How long we wait in between each summoning point activation
 @export_group("Work Day Parameters")
 @export var activation_period: float = 10.0
+@export var day_progress: float = 0.0
 
 ## The set of all summoning points in all floors in the game
 @onready var summoning_points: Array[SummoningPoint] = scan_summoning_points(floors_list_root)
@@ -85,6 +87,13 @@ func update_labels():
 	summoned_spirits_counter.text = "%d" % nr_summoned
 	total_spirits_counter.text = "%d" % nr_total
 	active_spirits_counter.text = "%d" % nr_active
+	
+	var hours = floor(8.0 * (1.0 - day_progress))
+	var minutes = 8.0 * (1.0 - day_progress)
+	while minutes > 1.0:
+		minutes -= 1.0
+	minutes = floor(minutes * 60)
+	clock_label.text = "%02d:%02d Left" % [hours, minutes]
 
 # ##############################################################################
 # Signal Handlers

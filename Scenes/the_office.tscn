@@ -38,6 +38,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(0.431373, 1, 0.8, 1), Color(0.905882, 0.921569, 0, 1), Color(0.803922, 0.45098, 0.0666667, 1), Color(0.345098, 0.203922, 0.0627451, 1), Color(0, 0, 0, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:day_progress")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 300),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_32y22"]
 _data = {
@@ -91,11 +103,14 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/Day UI/VBoxContainer/ClockRow"]
 layout_mode = 2
-text = "Solar Clock:"
+text = "Work Day:"
+
+[node name="ClockText" type="Label" parent="CanvasLayer/Day UI/VBoxContainer/ClockRow"]
+layout_mode = 2
 
 [node name="ProgressIndicator" type="ColorRect" parent="CanvasLayer/Day UI/VBoxContainer/ClockRow"]
 layout_mode = 2
-color = Color(0.345098, 0.203922, 0.0627451, 1)
+color = Color(0.43451, 0.999482, 0.794712, 1)
 
 [node name="ActiveSpiritsRow" type="HBoxContainer" parent="CanvasLayer/Day UI/VBoxContainer"]
 layout_mode = 2
@@ -161,10 +176,11 @@ script = ExtResource("9_rb8vs")
 
 [node name="escape menu" parent="." instance=ExtResource("7_0khle")]
 
-[node name="WorkDayController" type="Node" parent="." node_paths=PackedStringArray("floors_list_root", "player", "summoned_spirits_counter", "total_spirits_counter", "active_spirits_counter")]
+[node name="WorkDayController" type="Node" parent="." node_paths=PackedStringArray("floors_list_root", "player", "clock_label", "summoned_spirits_counter", "total_spirits_counter", "active_spirits_counter")]
 script = ExtResource("8_rgfby")
 floors_list_root = NodePath("../Floors")
 player = NodePath("../Player Character")
+clock_label = NodePath("../CanvasLayer/Day UI/VBoxContainer/ClockRow/ClockText")
 summoned_spirits_counter = NodePath("../CanvasLayer/Day UI/VBoxContainer/ProgressRow/SummonedSpiritsNumber")
 total_spirits_counter = NodePath("../CanvasLayer/Day UI/VBoxContainer/ProgressRow/TotalSpiritsNumber")
 active_spirits_counter = NodePath("../CanvasLayer/Day UI/VBoxContainer/ActiveSpiritsRow/ActiveSpiritsNumber")
