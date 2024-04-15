@@ -1,4 +1,5 @@
 extends Node2D
+class_name FloorsList
 
 signal change_floors(to: int)
 

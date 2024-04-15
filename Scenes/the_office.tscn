@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3i3lnbgey12t"]
+[gd_scene load_steps=11 format=3 uid="uid://d3i3lnbgey12t"]
 
 [ext_resource type="PackedScene" uid="uid://cgy3g0ln4qwjp" path="res://Scenes/player/player.tscn" id="1_tt05s"]
 [ext_resource type="PackedScene" uid="uid://c6ddeod3clnwv" path="res://Scenes/floors/1_lobby.tscn" id="2_44yaa"]
@@ -7,6 +7,39 @@
 [ext_resource type="PackedScene" uid="uid://b76o8i6k6ti4g" path="res://minimap/minimap.tscn" id="4_7jnv1"]
 [ext_resource type="PackedScene" uid="uid://bsjyjb5jo0x08" path="res://Scenes/elevator/elevator.tscn" id="5_r8e04"]
 [ext_resource type="PackedScene" uid="uid://cyawn4fsopql5" path="res://Scenes/escape menu/escape_menu.tscn" id="7_0khle"]
+[ext_resource type="Script" path="res://Scenes/work_day_controller.gd" id="8_rgfby"]
+
+[sub_resource type="Animation" id="Animation_qwhys"]
+resource_name = "work_day"
+length = 300.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:activation_period")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(20, -0.25, 0, 21.9, 17.0535, 12.4321, -25.4, 15.6419, 32.7, 16.2212, 10.4044, -18.2, 11.2969, 35.9, 7.53127, 5.19047, -21.6, 8.51502, 0.25, 0),
+"times": PackedFloat32Array(0, 125.7, 219.1, 299.5)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CanvasLayer/Day UI/ProgressIndicator:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 105.9, 198.2, 262.7, 300),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.431373, 1, 0.8, 1), Color(0.905882, 0.921569, 0, 1), Color(0.803922, 0.45098, 0.0666667, 1), Color(0.345098, 0.203922, 0.0627451, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_32y22"]
+_data = {
+"work_day": SubResource("Animation_qwhys")
+}
 
 [node name="The Office" type="Node2D"]
 
@@ -32,6 +65,18 @@ offset_left = -220.0
 offset_top = 50.0
 offset_bottom = 230.0
 color = Color(0.129558, 0.129559, 0.129558, 0.533333)
+
+[node name="Day UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressIndicator" type="ColorRect" parent="CanvasLayer/Day UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.345098, 0.203922, 0.0627451, 1)
 
 [node name="Floors" type="Node2D" parent="."]
 script = ExtResource("2_r30v5")
@@ -59,6 +104,24 @@ position_smoothing_speed = 10.0
 
 [node name="escape menu" parent="." instance=ExtResource("7_0khle")]
 
+[node name="WorkDayController" type="Node" parent="." node_paths=PackedStringArray("floors_list_root", "player")]
+script = ExtResource("8_rgfby")
+floors_list_root = NodePath("../Floors")
+player = NodePath("../Player Character")
+activation_period = 20.5225
+
+[node name="ActivationTimer" type="Timer" parent="WorkDayController"]
+wait_time = 5.0
+autostart = true
+
+[node name="DifficultyAndTimeCurves" type="AnimationPlayer" parent="WorkDayController"]
+libraries = {
+"": SubResource("AnimationLibrary_32y22")
+}
+autoplay = "work_day"
+
 [connection signal="change_floors" from="Floors" to="CanvasLayer/Control/Minimap" method="change_floor_to"]
 [connection signal="change_floor_to" from="Elevator" to="Floors" method="change_floor_to"]
 [connection signal="dialog_opened_closed" from="Elevator" to="Player Character" method="freeze"]
+[connection signal="timeout" from="WorkDayController/ActivationTimer" to="WorkDayController" method="_on_activation_timer_timeout"]
+[connection signal="animation_finished" from="WorkDayController/DifficultyAndTimeCurves" to="WorkDayController" method="_on_difficulty_anim"]

@@ -16,7 +16,7 @@ signal all_spirits_summoned
 @export var start_active: bool = false
 @export var always_active: bool = false
 @export_range(5, 300) var seconds_to_complete: float = 60
-@export var spirits_required: Array[Spirit.Element]
+@export var spirits_required: Array[Spirit.Element] = [Spirit.Element.Fire]
 
 ## The spirits that still need to be summoned to complete this activation point
 ## (spirits_required, minus the ones the player already finished)
