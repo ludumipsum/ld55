@@ -84,17 +84,14 @@ script = ExtResource("2_r30v5")
 active_floor = 3
 
 [node name="Executive Offices" parent="Floors" instance=ExtResource("2_44yaa")]
-visible = false
 
 [node name="Cube Farm" parent="Floors" instance=ExtResource("4_4xyus")]
 position = Vector2(-357, -149)
 
 [node name="Lobby" parent="Floors" instance=ExtResource("2_44yaa")]
-visible = false
 position = Vector2(-375, -164)
 
 [node name="Basement" parent="Floors" instance=ExtResource("2_o43cl")]
-visible = false
 position = Vector2(-179.69, 10.6442)
 
 [node name="Elevator" parent="." instance=ExtResource("5_r8e04")]
