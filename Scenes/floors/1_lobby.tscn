@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c6ddeod3clnwv"]
+[gd_scene load_steps=40 format=3 uid="uid://c6ddeod3clnwv"]
 
 [ext_resource type="Texture2D" uid="uid://d4id33ojax1om" path="res://unsorted_assets/modern_interiors_by_theme/Tilesets_16x16.png" id="1_yktwe"]
 [ext_resource type="Texture2D" uid="uid://dvt7r0lq7tsoh" path="res://unsorted_assets/Room_Builder_Floor_Paths_16x16.png" id="2_pfhxb"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bbu03opajvfyr" path="res://unsorted_assets/modern_interiors_by_theme/2_LivingRoom_16x16.png" id="5_6tfw0"]
 [ext_resource type="Texture2D" uid="uid://1icoyb1hkvv0" path="res://unsorted_assets/modern_interiors_by_theme/3_Bathroom_16x16.png" id="5_q06go"]
 [ext_resource type="Texture2D" uid="uid://o6slse0gnj3u" path="res://unsorted_assets/Modern_Office_16x16.png" id="7_ylppx"]
+[ext_resource type="PackedScene" uid="uid://bmfbdamx2iue1" path="res://minigames/summoning_point/summoning_point.tscn" id="8_281f0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0qxiw"]
 texture = ExtResource("1_yktwe")
@@ -8716,3 +8717,15 @@ shape = SubResource("RectangleShape2D_6a8ri")
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(279.641, 169)
 shape = SubResource("RectangleShape2D_6stwv")
+
+[node name="UpSinkRight" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(589, 29)
+spirits_required = Array[int]([7, 5])
+
+[node name="UpSinkLeft" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(557, 29)
+spirits_required = Array[int]([7, 5])
+
+[node name="ComputerTopRight" parent="." instance=ExtResource("8_281f0")]
+position = Vector2(250, 51)
+spirits_required = Array[int]([2, 7, 2])
