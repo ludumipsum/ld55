@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://d3i3lnbgey12t"]
+[gd_scene load_steps=19 format=3 uid="uid://d3i3lnbgey12t"]
 
 [ext_resource type="PackedScene" uid="uid://cgy3g0ln4qwjp" path="res://Scenes/player/player.tscn" id="1_tt05s"]
 [ext_resource type="PackedScene" uid="uid://c6ddeod3clnwv" path="res://Scenes/floors/1_lobby.tscn" id="2_44yaa"]
 [ext_resource type="PackedScene" uid="uid://bfpny4cpk66h6" path="res://Scenes/floors/0_basement.tscn" id="2_o43cl"]
 [ext_resource type="Script" path="res://Scenes/Floors.gd" id="2_r30v5"]
+[ext_resource type="FontFile" uid="uid://c25dx12ryq4uf" path="res://Fonts/dogicapixel.ttf" id="2_upyyi"]
 [ext_resource type="PackedScene" uid="uid://c2q1a12r1n0w6" path="res://Scenes/floors/3_executive.tscn" id="3_0ly1q"]
 [ext_resource type="PackedScene" uid="uid://dai1d0ek85n11" path="res://Scenes/floors/2_cube_farm.tscn" id="4_4xyus"]
 [ext_resource type="PackedScene" uid="uid://b76o8i6k6ti4g" path="res://minimap/minimap.tscn" id="4_7jnv1"]
@@ -11,6 +12,20 @@
 [ext_resource type="PackedScene" uid="uid://cyawn4fsopql5" path="res://Scenes/escape menu/escape_menu.tscn" id="7_0khle"]
 [ext_resource type="Script" path="res://Scenes/work_day_controller.gd" id="8_rgfby"]
 [ext_resource type="Script" path="res://Scenes/room_sizer.gd" id="9_rb8vs"]
+
+[sub_resource type="Theme" id="Theme_x08o5"]
+default_font = ExtResource("2_upyyi")
+
+[sub_resource type="LabelSettings" id="LabelSettings_w232t"]
+font = ExtResource("2_upyyi")
+
+[sub_resource type="Animation" id="Animation_u3pct"]
+resource_name = "info"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wsua1"]
+_data = {
+"info": SubResource("Animation_u3pct")
+}
 
 [sub_resource type="Animation" id="Animation_qwhys"]
 resource_name = "work_day"
@@ -86,11 +101,12 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme = SubResource("Theme_x08o5")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Day UI"]
 layout_mode = 0
-offset_right = 182.0
-offset_bottom = 82.0
+offset_right = 284.0
+offset_bottom = 63.0
 color = Color(0, 0, 0, 0.635294)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Day UI"]
@@ -141,6 +157,28 @@ text = "/"
 [node name="TotalSpiritsNumber" type="Label" parent="CanvasLayer/Day UI/VBoxContainer/ProgressRow"]
 layout_mode = 2
 text = "0"
+
+[node name="Important Info Ticker" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Important Info Ticker"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "placeholder!"
+label_settings = SubResource("LabelSettings_w232t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Important Info Ticker"]
+libraries = {
+"": SubResource("AnimationLibrary_wsua1")
+}
 
 [node name="Floors" type="Node2D" parent="."]
 script = ExtResource("2_r30v5")
