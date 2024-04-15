@@ -103,12 +103,19 @@ shape = SubResource("SegmentShape2D_j3usa")
 
 [node name="SummoningPoint" parent="." instance=ExtResource("3_l3vtq")]
 position = Vector2(-161, -116)
+spirits_required = Array[int]([2, 5, 7, 3])
 
 [node name="SummoningPoint2" parent="." instance=ExtResource("3_l3vtq")]
 position = Vector2(-120, -87)
+spirits_required = Array[int]([5, 7, 2, 3])
 
 [node name="SummoningPoint3" parent="." instance=ExtResource("3_l3vtq")]
 position = Vector2(-72, -87)
+spirits_required = Array[int]([2, 3, 7, 5])
 
 [node name="SummoningPoint4" parent="." instance=ExtResource("3_l3vtq")]
 position = Vector2(-33, -118)
+spirits_required = Array[int]([3, 2, 5, 7])
+
+[node name="SummoningPoint5" parent="." instance=ExtResource("3_l3vtq")]
+position = Vector2(63, -144)

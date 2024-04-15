@@ -79,6 +79,8 @@ func _instantiate_summoning_minigame(spirit: Spirit.Element):
 			message.text = "Strike the flint when the box is closed to summon a fire spirit!"
 		Spirit.Element.Water:
 			instance = water_minigame.instantiate()
+			box.show()
+			message.text = "don't get wet to summon a water spirit!"
 		Spirit.Element.Earth:
 			printerr("minigame not implemented")
 		Spirit.Element.Air:

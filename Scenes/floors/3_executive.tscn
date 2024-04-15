@@ -113,6 +113,7 @@ shape = SubResource("RectangleShape2D_tkpy8")
 
 [node name="SummoningPoint" parent="." instance=ExtResource("4_a2pjh")]
 position = Vector2(-32, -60)
+spirits_required = Array[int]([5, 3])
 
 [node name="SummoningPoint2" parent="." instance=ExtResource("4_a2pjh")]
 position = Vector2(-89, -59)
@@ -122,9 +123,12 @@ position = Vector2(-89, 21)
 
 [node name="SummoningPoint4" parent="." instance=ExtResource("4_a2pjh")]
 position = Vector2(103, -8)
+spirits_required = Array[int]([5, 7])
 
 [node name="SummoningPoint5" parent="." instance=ExtResource("4_a2pjh")]
 position = Vector2(112, 23)
+spirits_required = Array[int]([3, 5])
 
 [node name="SummoningPoint6" parent="." instance=ExtResource("4_a2pjh")]
 position = Vector2(40, -52)
+spirits_required = Array[int]([3, 5])

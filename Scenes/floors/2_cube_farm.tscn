@@ -236,93 +236,140 @@ shape = SubResource("RectangleShape2D_k7tco")
 
 [node name="SummoningPoint" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(23, 7)
+spirits_required = Array[int]([3, 2])
 
 [node name="SummoningPoint2" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(8, 12)
+spirits_required = Array[int]([7])
 
 [node name="SummoningPoint3" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(48, 7)
+spirits_required = Array[int]([5])
 
 [node name="SummoningPoint4" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(81, 7)
+spirits_required = Array[int]([2, 3])
 
 [node name="SummoningPoint5" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(144, 8)
+spirits_required = Array[int]([3, 5])
 
 [node name="SummoningPoint6" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(208, 7)
+spirits_required = Array[int]([5, 3])
 
 [node name="SummoningPoint7" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(232, 70)
+spirits_required = Array[int]([5, 7])
 
 [node name="SummoningPoint8" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(280, 70)
+spirits_required = Array[int]([5, 7])
 
 [node name="SummoningPoint9" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(328, 71)
+spirits_required = Array[int]([7, 5])
 
 [node name="SummoningPoint10" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(375, 70)
+spirits_required = Array[int]([7, 5])
 
 [node name="SummoningPoint11" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(231, 150)
+spirits_required = Array[int]([5, 7])
 
 [node name="SummoningPoint12" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(279, 149)
+spirits_required = Array[int]([5, 7])
 
 [node name="SummoningPoint13" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(327, 149)
+spirits_required = Array[int]([5, 7])
 
 [node name="SummoningPoint14" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(376, 150)
+spirits_required = Array[int]([5, 7])
 
 [node name="SummoningPoint15" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(55, 164)
+spirits_required = Array[int]([5, 7])
 
 [node name="SummoningPoint16" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(104, 165)
+spirits_required = Array[int]([7, 5])
 
 [node name="SummoningPoint17" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(148, 149)
+spirits_required = Array[int]([5])
 
 [node name="SummoningPoint18" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(48, 235)
+spirits_required = Array[int]([2, 3])
 
 [node name="SummoningPoint19" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(71, 236)
+spirits_required = Array[int]([7])
 
 [node name="SummoningPoint20" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(232, 310)
+spirits_required = Array[int]([5, 7])
 
 [node name="SummoningPoint21" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(248, 310)
+spirits_required = Array[int]([7, 5])
 
 [node name="SummoningPoint22" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(264, 310)
+spirits_required = Array[int]([7, 5])
 
 [node name="SummoningPoint23" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(280, 310)
+spirits_required = Array[int]([5, 7])
 
 [node name="SummoningPoint24" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(295, 310)
+spirits_required = Array[int]([7, 5])
 
 [node name="SummoningPoint25" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(312, 310)
+spirits_required = Array[int]([5, 7])
 
 [node name="SummoningPoint26" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(328, 310)
+spirits_required = Array[int]([5, 7])
 
 [node name="SummoningPoint27" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(440, 12)
+spirits_required = Array[int]([5, 3])
 
 [node name="SummoningPoint28" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(504, 165)
+spirits_required = Array[int]([7, 3])
 
 [node name="SummoningPoint29" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(523, 165)
+spirits_required = Array[int]([7, 3])
 
 [node name="SummoningPoint30" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(542, 165)
+spirits_required = Array[int]([7, 3])
 
 [node name="SummoningPoint31" parent="." instance=ExtResource("3_sck47")]
 position = Vector2(573, 152)
+spirits_required = Array[int]([2, 3])
+
+[node name="SummoningPoint32" parent="." instance=ExtResource("3_sck47")]
+position = Vector2(504, 15)
+spirits_required = Array[int]([3, 7])
+
+[node name="SummoningPoint33" parent="." instance=ExtResource("3_sck47")]
+position = Vector2(523, 15)
+spirits_required = Array[int]([7, 3])
+
+[node name="SummoningPoint34" parent="." instance=ExtResource("3_sck47")]
+position = Vector2(542, 15)
+spirits_required = Array[int]([3, 7])
+
+[node name="SummoningPoint35" parent="." instance=ExtResource("3_sck47")]
+position = Vector2(573, 9)
+spirits_required = Array[int]([2, 3])
