@@ -11,6 +11,7 @@ class_name WorkDayController
 
 ## The set of all summoning points in all floors in the game
 @onready var summoning_points: Array[SummoningPoint] = scan_summoning_points(floors_list_root)
+@onready var summoning_points_by_floor: Array = scan_summoning_points_by_floor(floors_list_root)
 @onready var activation_timer = $ActivationTimer
 
 func scan_summoning_points(root: Node):
@@ -22,6 +23,33 @@ func scan_summoning_points(root: Node):
 		for point in scan_summoning_points(child):
 			points.push_back(point)
 	return points
+	
+func scan_summoning_points_by_floor(root: Node):
+	## Find all summoning points in the scene graph below this node
+	var points_by_floor = []
+	for child_floor in root.get_children():
+		var points = scan_summoning_points(child_floor)
+		points_by_floor.push_back(points)
+	return points_by_floor
+
+func update_player_compass():
+	var active_floor = floors_list_root.get_active_floor()
+	var summons_on_floor = summoning_points_by_floor[active_floor].duplicate()
+	var actives_on_floor = summons_on_floor.filter(func(a: SummoningPoint): return a.is_active())
+	if actives_on_floor.is_empty():
+		player.hide_compass()
+		return
+	var nearest_active = actives_on_floor[0]
+	var nearest_distance = 9999999999.0
+	for point in actives_on_floor:
+		var dist = (player.position - point.position).length()
+		if dist < nearest_distance:
+			nearest_active = point
+			nearest_distance = dist
+	player.show_compass(nearest_active)
+	
+func _physics_process(delta):
+	update_player_compass()
 
 func _ready():
 	link_common_signals()

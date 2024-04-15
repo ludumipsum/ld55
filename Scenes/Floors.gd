@@ -31,6 +31,9 @@ func change_floor_to(to: int):
 	floors[to].position = active_locations[to]
 	change_floors.emit(active_floor)
 
+func get_active_floor():
+	return active_floor
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	initialize_floors()

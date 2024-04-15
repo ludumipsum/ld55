@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://cgy3g0ln4qwjp"]
+[gd_scene load_steps=34 format=3 uid="uid://cgy3g0ln4qwjp"]
 
 [ext_resource type="Script" path="res://Scenes/player/PlayerCharacter.gd" id="1_6vvkb"]
 [ext_resource type="Texture2D" uid="uid://6goq6y6457sk" path="res://unsorted_assets/stock_char_20_small.png" id="2_a1aa8"]
 [ext_resource type="AudioStream" uid="uid://brwfrx3btjtjd" path="res://unsorted_assets/audio/BGM.ogg" id="3_dkqjp"]
+[ext_resource type="FontFile" uid="uid://c25dx12ryq4uf" path="res://Fonts/dogicapixel.ttf" id="4_get8q"]
 
 [sub_resource type="Animation" id="Animation_8pe52"]
 length = 0.001
@@ -246,6 +247,55 @@ size = Vector2(16, 15)
 atlas = ExtResource("2_a1aa8")
 region = Rect2(0, 0, 320, 96)
 
+[sub_resource type="LabelSettings" id="LabelSettings_23vgq"]
+font = ExtResource("4_get8q")
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_l32ko"]
+resource_name = "pulse"
+length = 0.75
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.25, -0.25, 0, 0.3, 0, 0.8, -0.3, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.75)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.3, 0, 1, -0.3, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.75)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.1, 0.0347093, 1, -0.45, 0.0211298, 0.25, 0),
+"times": PackedFloat32Array(0, 0.75)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kwwsu"]
+_data = {
+"pulse": SubResource("Animation_l32ko")
+}
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_6vvkb")
@@ -281,3 +331,21 @@ texture = SubResource("AtlasTexture_wgqss")
 hframes = 20
 vframes = 3
 frame = 6
+
+[node name="Compass" type="Label" parent="."]
+visible = false
+modulate = Color(0.79482, 0.990582, 0, 0.998178)
+offset_left = -6.0
+offset_top = 4.0
+offset_right = 7.0
+offset_bottom = 16.0
+pivot_offset = Vector2(6, -12)
+text = "v"
+label_settings = SubResource("LabelSettings_23vgq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Compass"]
+libraries = {
+"": SubResource("AnimationLibrary_kwwsu")
+}
