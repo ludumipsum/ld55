@@ -7,6 +7,7 @@ enum Element {Grass, Light, Fire, Water, Earth, Air, Writing, Void}
 
 @export var element: Element
 @onready var player = $AnimationPlayer
+@onready var summon = $summon
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,6 +29,7 @@ func _ready():
 		Element.Void:
 			modulate = Color.REBECCA_PURPLE
 	player.queue("summon")
+	summon.play()
 	player.queue("idle")
 	player.queue("idle")
 	player.queue("RESET")

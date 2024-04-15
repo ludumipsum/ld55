@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cavx13nlffv4s"]
+[gd_scene load_steps=8 format=3 uid="uid://cavx13nlffv4s"]
 
 [ext_resource type="PackedScene" uid="uid://b7uau33tv70c7" path="res://minigames/overlay_frame.tscn" id="1_vwo5x"]
 [ext_resource type="Script" path="res://minigames/fire_spirit/rhythm_cue.gd" id="2_cgwo7"]
+[ext_resource type="AudioStream" uid="uid://diuf1gc54ylwo" path="res://unsorted_assets/audio/fire_pass.wav" id="3_d2bpu"]
 [ext_resource type="FontFile" uid="uid://c25dx12ryq4uf" path="res://Fonts/dogicapixel.ttf" id="3_lhey4"]
+[ext_resource type="AudioStream" uid="uid://baisatigaqxe6" path="res://unsorted_assets/audio/fire_fail.wav" id="4_de1qh"]
 
 [sub_resource type="GDScript" id="GDScript_o3vep"]
 script/source = "extends SummoningMinigame
@@ -30,6 +32,12 @@ stroke_width = 12.0
 bpm = 100.0
 fudge_factor = 0.1
 beats_left_label = NodePath("../BeatsLeftLabel")
+
+[node name="fire_pass" type="AudioStreamPlayer" parent="Rhythm Cue"]
+stream = ExtResource("3_d2bpu")
+
+[node name="fire_fail" type="AudioStreamPlayer" parent="Rhythm Cue"]
+stream = ExtResource("4_de1qh")
 
 [node name="BeatsLeftLabel" type="Label" parent="."]
 offset_left = -125.0

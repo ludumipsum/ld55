@@ -1,7 +1,8 @@
-[gd_scene load_steps=44 format=3 uid="uid://cgy3g0ln4qwjp"]
+[gd_scene load_steps=45 format=3 uid="uid://cgy3g0ln4qwjp"]
 
 [ext_resource type="Script" path="res://Scenes/player/PlayerCharacter.gd" id="1_6vvkb"]
 [ext_resource type="Texture2D" uid="uid://6goq6y6457sk" path="res://unsorted_assets/stock_char_20_small.png" id="2_a1aa8"]
+[ext_resource type="AudioStream" uid="uid://brwfrx3btjtjd" path="res://unsorted_assets/audio/BGM.ogg" id="3_dkqjp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wjbvb"]
 atlas = ExtResource("2_a1aa8")
@@ -336,3 +337,8 @@ frame_progress = 0.627735
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_q7m2s")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("3_dkqjp")
+autoplay = true

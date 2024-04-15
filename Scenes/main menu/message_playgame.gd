@@ -5,6 +5,7 @@ var yes
 
 @onready var textbox = self
 @onready var text = $textbox_container/MarginContainer/HBoxContainer/text
+@onready var select = $select
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -46,10 +47,13 @@ func action():
 func _process(_delta):
 	if seen == true:
 		if Input.is_action_just_pressed("move_up") == true:
+			select.play()
 			up_select()
 		if Input.is_action_just_pressed("move_down") ==true:
+			select.play()
 			down_select()
 		if Input.is_action_just_pressed("action") == true:
+			select.play()
 			action()
 		
 		

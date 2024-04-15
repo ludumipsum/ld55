@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bsjyjb5jo0x08"]
+[gd_scene load_steps=14 format=3 uid="uid://bsjyjb5jo0x08"]
 
 [ext_resource type="Script" path="res://Scenes/elevator/elevator.gd" id="1_vrcae"]
 [ext_resource type="Script" path="res://Scenes/elevator/elevator_options.gd" id="2_ne0gb"]
 [ext_resource type="FontFile" uid="uid://ce3om1rv7cdjs" path="res://Fonts/dogicapixelbold.ttf" id="2_o6gvp"]
 [ext_resource type="Texture2D" uid="uid://budgxy4xrsium" path="res://unsorted_assets/Interiors_free_16x16.png" id="4_5lkxt"]
+[ext_resource type="AudioStream" uid="uid://ckn4id37qsxnf" path="res://unsorted_assets/audio/select.wav" id="4_rt03t"]
+[ext_resource type="AudioStream" uid="uid://c8kv2iua00dxs" path="res://unsorted_assets/audio/elevator.wav" id="6_mmjj6"]
 
 [sub_resource type="Theme" id="Theme_cslqn"]
 default_font = ExtResource("2_o6gvp")
@@ -134,6 +136,9 @@ label_settings = SubResource("LabelSettings_hqxhi")
 horizontal_alignment = 2
 vertical_alignment = 2
 
+[node name="select" type="AudioStreamPlayer" parent="message options"]
+stream = ExtResource("4_rt03t")
+
 [node name="Elevator Doors" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_h78kv")
 
@@ -146,6 +151,9 @@ texture = SubResource("AtlasTexture_mr856")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Elevator Doors/trigger_options"]
 position = Vector2(0, 13)
 shape = SubResource("RectangleShape2D_xu6tm")
+
+[node name="elevator" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_mmjj6")
 
 [connection signal="change_floor_to" from="message options" to="." method="_on_change_floor_to"]
 [connection signal="visibility_changed" from="message options" to="." method="_on_message_options_visibility_changed"]
