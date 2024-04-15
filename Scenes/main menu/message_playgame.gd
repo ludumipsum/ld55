@@ -23,15 +23,31 @@ func show_textbox():
 
 
 func up_select():
-	text.text ="start game?
+	text.text ="it's your job to keep the spirits of the office where they need to be to keep things running smoothly.
+
+use the elevator to check each floor for missing spirits.
+
+If a spirit is missing, your compass will point you to where you need to perform the summoning ritual.
+
+you can use the book in here to practice the rituals.
+
+are you ready to get to work?
 	yes? <
 	no?"
 	yes = true
 
 
 func down_select():
-	text.text ="start game?
-	yes? 
+	text.text ="it's your job to keep the spirits of the office where they need to be to keep things running smoothly.
+
+use the elevator to check each floor for missing spirits.
+
+If a spirit is missing, your compass will point you to where you need to perform the summoning ritual.
+
+you can use the book in here to practice the rituals.
+
+are you ready to get to work?
+	yes?
 	no? <"
 	yes = false
 
