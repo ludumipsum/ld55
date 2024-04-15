@@ -10,8 +10,6 @@
 
 [node name="The Office" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="Minimap" parent="." node_paths=PackedStringArray("floor_controller") instance=ExtResource("4_7jnv1")]
 z_index = 10
 position = Vector2(479, -159)
@@ -35,6 +33,10 @@ position = Vector2(-179.69, 10.6442)
 position = Vector2(-181, -145)
 
 [node name="Player Character" parent="." instance=ExtResource("1_tt05s")]
+
+[node name="Camera2D" type="Camera2D" parent="Player Character"]
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
 
 [node name="escape menu" parent="." instance=ExtResource("7_0khle")]
 
