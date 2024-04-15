@@ -51,7 +51,7 @@ func reset():
 	lifespan.stop()
 	canvas.hide()
 	if little_guy:
-		viewport.remove_child(little_guy)
+		self.remove_child(little_guy)
 	remaining_spirit_elements = spirits_required.duplicate()
 	$ActionIndicator.visible = false
 	if always_active:
@@ -115,10 +115,10 @@ func _on_puzzle_finished():
 	# 1. spawn the spirit
 	# 2. Wire up the animation complete signal to _on_spirit_animation_done
 	little_guy = spirit.instantiate()
-	little_guy.position.y += 60
+	little_guy.position.y -= 20
 	little_guy.element = remaining_spirit_elements[0]
 	little_guy.animation_finished.connect(self._on_spirit_animation_done)
-	viewport.add_child(little_guy)
+	self.add_child(little_guy)
 	
 	# HACK: if this is the last spirit, let the player run around while he blobs
 	if remaining_spirit_elements.size() == 1:
@@ -137,7 +137,7 @@ func _on_spirit_animation_done():
 		self.reset()
 		return
 	# We have more spirits to do, spawn the next one
-	viewport.remove_child(little_guy)
+	self.remove_child(little_guy)
 	little_guy = null
 	self._spawn_next_summoning_minigame()
 
