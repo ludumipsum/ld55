@@ -71,7 +71,8 @@ func _ready():
 func link_common_signals():
 	## Scan all summoning points and link up their output signals
 	for point in summoning_points:
-		point.toggle_inputs.connect(player.freeze)
+		point.toggle_inputs.connect(self.toggle_interact_for_all)
+		#point.toggle_inputs.connect(player.freeze)
 		point.all_spirits_summoned.connect(self._on_summon_complete)
 		point.timeout.connect(self._on_summon_failed)
 
@@ -101,6 +102,11 @@ func update_labels():
 
 # ##############################################################################
 # Signal Handlers
+
+func toggle_interact_for_all():
+	player.freeze()
+	for point in summoning_points:
+		point.interact_disabled = !point.interact_disabled
 
 func _on_difficulty_anim(anim_name):
 	match anim_name:
