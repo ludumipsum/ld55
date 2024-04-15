@@ -28,7 +28,7 @@ var remaining_spirit_elements: Array[Spirit.Element] = []
 @onready var void_minigame = load("res://minigames/void_spirit/summon_void_spirit.tscn")
 @onready var lifespan: Timer = $LifespanTimer
 @onready var viewport: SubViewport = $MinigameViewport
-@onready var canvas: Sprite2D = $MinigameCanvas
+@onready var canvas: Sprite2D = $CanvasLayer/Control/MinigameCanvas
 
 ## The spirit we summoned!
 var little_guy: Spirit
