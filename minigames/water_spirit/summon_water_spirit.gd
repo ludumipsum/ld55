@@ -12,6 +12,8 @@ const SPAWN_DISTANCE : float = 120
 @export var player : CharacterBody2D
 
 @onready var frame = $"Minigame Frame"
+@onready var bloop = $bloop
+@onready var splash = $splash
 
 var finished : bool = false
 var droplets_spawned : int = 0
@@ -63,6 +65,7 @@ func spawn_droplet() -> Droplet:
 	droplet.target_hit.connect(_on_droplet_target_hit)
 	
 	droplets.push_back(droplet)
+	bloop.play()
 	return droplet
 	
 func _on_droplet_timer_tick():
@@ -74,6 +77,7 @@ func _on_droplet_timer_tick():
 		droplet_timer.stop()
 
 func _on_droplet_target_hit():
+	splash.play()
 	reset()
 
 func _on_timeout_timer_tick():
