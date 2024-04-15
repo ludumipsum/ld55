@@ -39,9 +39,10 @@ func instantiate_floors():
 		# Get the zoom extents for this floor and:
 		# 1. Center the camera over the extents
 		# 2. Zoom such that the whole thing is visible
-		var zoom_extents = calculate_subtree_extents(floor_root)
+		var zoom_extents = floor_root.get_extents() #calculate_subtree_extents(floor_root)
 		cam.position = zoom_extents.position + (zoom_extents.size)
-		viewport.size = zoom_extents.size
+		cam.zoom = zoom_extents.size.normalized()
+		viewport.set_size_2d_override(zoom_extents.size * 2)
 		print(zoom_extents)
 		
 		# Configure the viewport to view the real world
