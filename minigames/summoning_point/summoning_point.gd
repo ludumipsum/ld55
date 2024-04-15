@@ -29,6 +29,8 @@ var remaining_spirit_elements: Array[Spirit.Element] = []
 @onready var lifespan: Timer = $LifespanTimer
 @onready var viewport: SubViewport = $MinigameViewport
 @onready var canvas: Sprite2D = $CanvasLayer/Control/MinigameCanvas
+@onready var box = $"CanvasLayer/game instructions"
+@onready var message = $"CanvasLayer/game instructions/textbox_container/MarginContainer/HBoxContainer/text"
 
 ## The spirit we summoned!
 var little_guy: Spirit
@@ -72,16 +74,22 @@ func _instantiate_summoning_minigame(spirit: Spirit.Element):
 			printerr("minigame not implemented")
 		Spirit.Element.Fire:
 			instance = fire_minigame.instantiate()
+			box.show()
+			message.text = "Strike the flint when the box is closed to summon a fire spirit!"
 		Spirit.Element.Water:
 			printerr("minigame not implemented")
 		Spirit.Element.Earth:
 			printerr("minigame not implemented")
 		Spirit.Element.Air:
 			instance = wind_minigame.instantiate()
+			message.text = "blow the wind in the right direction to summon an air spirit!"
+			box.show()
 		Spirit.Element.Writing:
 			printerr("minigame not implemented")
 		Spirit.Element.Void:
 			instance = void_minigame.instantiate()
+			message.text = "create a void for the void spirit to inhabit by rappidly pressing the action key!"
+			box.show()
 		var otherwise:
 			printerr("tried to instantiate unknown spirit summoning ritual: ", otherwise)
 	return instance
@@ -120,6 +128,7 @@ func _on_puzzle_finished():
 	little_guy.position.y -= 20
 	little_guy.element = remaining_spirit_elements[0]
 	little_guy.animation_finished.connect(self._on_spirit_animation_done)
+	box.hide()
 	self.add_child(little_guy)
 	
 	# HACK: if this is the last spirit, let the player run around while he blobs

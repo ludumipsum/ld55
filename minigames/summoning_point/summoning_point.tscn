@@ -1,7 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmfbdamx2iue1"]
+[gd_scene load_steps=13 format=3 uid="uid://bmfbdamx2iue1"]
 
 [ext_resource type="Script" path="res://minigames/summoning_point/summoning_point.gd" id="1_qxlgs"]
 [ext_resource type="FontFile" uid="uid://c25dx12ryq4uf" path="res://Fonts/dogicapixel.ttf" id="2_5axxb"]
+[ext_resource type="Script" path="res://minigames/summoning_point/game_instructions.gd" id="3_pt7vt"]
+[ext_resource type="FontFile" uid="uid://ce3om1rv7cdjs" path="res://Fonts/dogicapixelbold.ttf" id="4_aujnb"]
+[ext_resource type="AudioStream" uid="uid://ckn4id37qsxnf" path="res://unsorted_assets/audio/select.wav" id="5_tfyed"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fv6je"]
 font = ExtResource("2_5axxb")
@@ -58,6 +61,17 @@ size = Vector2(23, 27)
 [sub_resource type="ViewportTexture" id="ViewportTexture_0m0vu"]
 viewport_path = NodePath("MinigameViewport")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4s6i1"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_knu2u"]
+font = ExtResource("4_aujnb")
+
 [node name="SummoningPoint" type="Node2D"]
 script = ExtResource("1_qxlgs")
 
@@ -110,6 +124,66 @@ grow_vertical = 2
 [node name="MinigameCanvas" type="Sprite2D" parent="CanvasLayer/Control"]
 scale = Vector2(2, 2)
 texture = SubResource("ViewportTexture_0m0vu")
+
+[node name="game instructions" type="CanvasLayer" parent="CanvasLayer"]
+visible = false
+script = ExtResource("3_pt7vt")
+
+[node name="textbox_container" type="MarginContainer" parent="CanvasLayer/game instructions"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -95.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="CanvasLayer/game instructions/textbox_container"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4s6i1")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/game instructions/textbox_container"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/game instructions/textbox_container/MarginContainer"]
+layout_mode = 2
+
+[node name="start" type="Label" parent="CanvasLayer/game instructions/textbox_container/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "*"
+label_settings = SubResource("LabelSettings_knu2u")
+
+[node name="text" type="Label" parent="CanvasLayer/game instructions/textbox_container/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Hello World!"
+label_settings = SubResource("LabelSettings_knu2u")
+autowrap_mode = 2
+
+[node name="end" type="Label" parent="CanvasLayer/game instructions/textbox_container/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "v"
+label_settings = SubResource("LabelSettings_knu2u")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="select" type="AudioStreamPlayer" parent="CanvasLayer/game instructions"]
+stream = ExtResource("5_tfyed")
 
 [connection signal="body_entered" from="TriggerArea" to="." method="_on_player_contact"]
 [connection signal="timeout" from="LifespanTimer" to="." method="_on_lifespan_timeout"]

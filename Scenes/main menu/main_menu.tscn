@@ -97,6 +97,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="indicator_options" type="Label" parent="Menu_Indicators"]
+visible = false
 layout_mode = 0
 offset_left = 139.0
 offset_top = 62.0
@@ -130,10 +131,12 @@ position = Vector2(-75, 52)
 shape = SubResource("SegmentShape2D_6ykee")
 
 [node name="trigger_options" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="trigger_options"]
 position = Vector2(71, -21)
 shape = SubResource("RectangleShape2D_tkmjy")
+disabled = true
 
 [node name="trigger_playgame" type="Area2D" parent="."]
 position = Vector2(149, -57)
