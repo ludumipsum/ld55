@@ -5,5 +5,5 @@ uniform sampler2D viewport_texture;
 void fragment() {
 	vec4 tex = texture(viewport_texture, UV).rgba;
     ALBEDO = tex.rgb;
-	//ALPHA = tex.a;
+	ALPHA = tex.a;
 }

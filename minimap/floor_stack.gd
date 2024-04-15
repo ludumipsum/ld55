@@ -41,9 +41,8 @@ func instantiate_floors():
 		# 2. Zoom such that the whole thing is visible
 		var zoom_extents = floor_root.get_extents() #calculate_subtree_extents(floor_root)
 		cam.position = zoom_extents.position + (zoom_extents.size)
-		cam.zoom = zoom_extents.size.normalized() * 0.95
-		viewport.set_size_2d_override(zoom_extents.size)
-		#viewport.set_size_2d_override_stretch(true)
+		cam.zoom = zoom_extents.size.normalized()
+		viewport.set_size_2d_override(zoom_extents.size * 2)
 		print(zoom_extents)
 		
 		# Configure the viewport to view the real world
