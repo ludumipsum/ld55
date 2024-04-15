@@ -124,8 +124,9 @@ func _on_activation_timer_timeout():
 func _on_summon_complete():
 	## When the player finishes a summon in time
 	nr_summoned += 1
+	nr_active -= 1
 	print("spirit summoned!")
 
 func _on_summon_failed():
 	## When the player fails to finish a summon in time
-	print("TODO: implement score decrementing when an activation point times out")
+	nr_active -= 1
