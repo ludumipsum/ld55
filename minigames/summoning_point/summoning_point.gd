@@ -126,6 +126,7 @@ func _on_puzzle_finished():
 	if remaining_spirit_elements.size() == 1:
 		toggle_inputs.emit()
 		interact_disabled = true
+		$ActionIndicator.visible = false
 
 func _on_spirit_animation_done():
 	## Signal handler: when a spirit summoning animation is done
