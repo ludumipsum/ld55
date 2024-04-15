@@ -14,7 +14,7 @@ func get_new_velocity():
 	var input_vector := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	return input_vector * speed
 
-func _process(delta):
+func _process(_delta):
 	if compass_target && compass.visible:
 		update_compass()
 
