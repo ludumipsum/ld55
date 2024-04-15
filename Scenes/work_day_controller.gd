@@ -1,6 +1,8 @@
 extends Node
 class_name WorkDayController
 
+signal new_work_order(text)
+
 ## The root of the game's playable area, the floors list
 @export var floors_list_root: FloorsList
 @export var player: PlayerCharacter
@@ -81,13 +83,14 @@ func activate_random():
 			inactive_points.push_back(point)
 	var next = randi() % inactive_points.size()
 	inactive_points[next].activate()
+	new_work_order.emit("A new work order came in!")
 	print("chose %s" % inactive_points[next])
 
 func update_labels():
 	summoned_spirits_counter.text = "%d" % nr_summoned
 	total_spirits_counter.text = "%d" % nr_total
 	active_spirits_counter.text = "%d" % nr_active
-	
+	# clock labels
 	var hours = floor(8.0 * (1.0 - day_progress))
 	var minutes = 8.0 * (1.0 - day_progress)
 	while minutes > 1.0:

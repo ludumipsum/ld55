@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d3i3lnbgey12t"]
+[gd_scene load_steps=20 format=3 uid="uid://d3i3lnbgey12t"]
 
 [ext_resource type="PackedScene" uid="uid://cgy3g0ln4qwjp" path="res://Scenes/player/player.tscn" id="1_tt05s"]
 [ext_resource type="PackedScene" uid="uid://c6ddeod3clnwv" path="res://Scenes/floors/1_lobby.tscn" id="2_44yaa"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scenes/Floors.gd" id="2_r30v5"]
 [ext_resource type="FontFile" uid="uid://c25dx12ryq4uf" path="res://Fonts/dogicapixel.ttf" id="2_upyyi"]
 [ext_resource type="PackedScene" uid="uid://c2q1a12r1n0w6" path="res://Scenes/floors/3_executive.tscn" id="3_0ly1q"]
+[ext_resource type="Script" path="res://Scenes/Important Info Ticker.gd" id="3_f48m0"]
 [ext_resource type="PackedScene" uid="uid://dai1d0ek85n11" path="res://Scenes/floors/2_cube_farm.tscn" id="4_4xyus"]
 [ext_resource type="PackedScene" uid="uid://b76o8i6k6ti4g" path="res://minimap/minimap.tscn" id="4_7jnv1"]
 [ext_resource type="PackedScene" uid="uid://bsjyjb5jo0x08" path="res://Scenes/elevator/elevator.tscn" id="5_r8e04"]
@@ -16,16 +17,64 @@
 [sub_resource type="Theme" id="Theme_x08o5"]
 default_font = ExtResource("2_upyyi")
 
-[sub_resource type="LabelSettings" id="LabelSettings_w232t"]
-font = ExtResource("2_upyyi")
-
 [sub_resource type="Animation" id="Animation_u3pct"]
 resource_name = "info"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.858489, -0.25, 0, 0.25, 0, -0.0215242, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.00663624, -0.25, 0, 0.25, 0, 0.851449, -0.25, 0, 0.25, 0, -0.0356044, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2.00436)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.87257, -0.796741, 0.0422407, 0.803259, -0.00704008, -0.0356044, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.996741, 2.00654)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(74.4364, -0.25, 0, 0.3, -49.9999, 12.5217, -1.5, -8.9943, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wsua1"]
 _data = {
 "info": SubResource("Animation_u3pct")
 }
+
+[sub_resource type="LabelSettings" id="LabelSettings_w232t"]
+font = ExtResource("2_upyyi")
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.823529)
+shadow_offset = Vector2(2, 2)
 
 [sub_resource type="Animation" id="Animation_qwhys"]
 resource_name = "work_day"
@@ -167,18 +216,22 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 40.0
 grow_horizontal = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/Important Info Ticker"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "placeholder!"
-label_settings = SubResource("LabelSettings_w232t")
+script = ExtResource("3_f48m0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Important Info Ticker"]
 libraries = {
 "": SubResource("AnimationLibrary_wsua1")
 }
+
+[node name="Label" type="Label" parent="CanvasLayer/Important Info Ticker"]
+modulate = Color(0, 0.00663624, 0, 0)
+layout_mode = 2
+offset_left = -176.0
+offset_top = 74.4364
+offset_right = -26.0
+offset_bottom = 88.4364
+text = "placeholder!"
+label_settings = SubResource("LabelSettings_w232t")
 
 [node name="Floors" type="Node2D" parent="."]
 script = ExtResource("2_r30v5")
@@ -238,5 +291,6 @@ autoplay = "work_day"
 [connection signal="change_floors" from="Floors" to="Player Character/Camera2D" method="_on_floors_change_floors"]
 [connection signal="change_floor_to" from="Elevator" to="Floors" method="change_floor_to"]
 [connection signal="dialog_opened_closed" from="Elevator" to="Player Character" method="freeze"]
+[connection signal="new_work_order" from="WorkDayController" to="CanvasLayer/Important Info Ticker" method="show_info"]
 [connection signal="timeout" from="WorkDayController/ActivationTimer" to="WorkDayController" method="_on_activation_timer_timeout"]
 [connection signal="animation_finished" from="WorkDayController/DifficultyAndTimeCurves" to="WorkDayController" method="_on_difficulty_anim"]
