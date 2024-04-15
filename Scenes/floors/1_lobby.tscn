@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d4id33ojax1om" path="res://unsorted_assets/modern_interiors_by_theme/Tilesets_16x16.png" id="1_yktwe"]
 [ext_resource type="Texture2D" uid="uid://dvt7r0lq7tsoh" path="res://unsorted_assets/Room_Builder_Floor_Paths_16x16.png" id="2_pfhxb"]
-[ext_resource type="TileSet" uid="uid://clnir5owme65t" path="res://unsorted_assets/Office_Tiles/default.tres" id="3_1554u"]
+[ext_resource type="TileSet" uid="uid://27f0bbs88u7l" path="res://unsorted_assets/Office_Tiles/default.tres" id="3_1554u"]
 [ext_resource type="PackedScene" uid="uid://bmfbdamx2iue1" path="res://minigames/summoning_point/summoning_point.tscn" id="8_281f0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0qxiw"]

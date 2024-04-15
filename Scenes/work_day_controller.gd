@@ -11,7 +11,6 @@ class_name WorkDayController
 
 ## The set of all summoning points in all floors in the game
 @onready var summoning_points: Array[SummoningPoint] = scan_summoning_points(floors_list_root)
-@onready var workday_timer = $WorkDayTimer
 @onready var activation_timer = $ActivationTimer
 
 func scan_summoning_points(root: Node):

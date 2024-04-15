@@ -8,7 +8,6 @@ const OUR_TILEMAP_CELL_SIZE: int = 16
 @export var active_floor_spread: float = 0.6
 @export var inactive_floor_spread: float = 0.2
 
-@onready var floorcam_proto = load("res://minimap/floorcam.tscn")
 @onready var shader = load("res://minimap/minimap.gdshader")
 
 var floor_quads: Array = []
