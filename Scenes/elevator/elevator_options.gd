@@ -61,5 +61,6 @@ func _process(_delta):
 		pass
 
 
-func _on_trigger_options_body_entered(_body):
-	show_textbox()
+func _on_trigger_options_body_entered(body):
+	if body is PlayerCharacter:
+		show_textbox()

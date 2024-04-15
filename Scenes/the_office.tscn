@@ -94,7 +94,7 @@ position = Vector2(-357, -149)
 position = Vector2(-373, -164)
 
 [node name="Basement" parent="Floors" instance=ExtResource("2_o43cl")]
-position = Vector2(-84, 25)
+position = Vector2(-85, 26)
 
 [node name="Elevator" parent="." instance=ExtResource("5_r8e04")]
 position = Vector2(-181, -145)
@@ -104,8 +104,8 @@ position = Vector2(-184, -80)
 
 [node name="Camera2D" type="Camera2D" parent="Player Character"]
 zoom = Vector2(2.75, 2.75)
-limit_left = -360
-limit_top = -160
+limit_left = -390
+limit_top = -190
 limit_right = 255
 limit_bottom = 205
 position_smoothing_enabled = true
