@@ -169,6 +169,7 @@ func _on_player_contact(body: Node2D):
 		return
 	## Signal handler: when the player came into contact with our trigger area
 	if self.is_active():
+		lifespan.start(99999)
 		toggle_inputs.emit()
 		self._spawn_next_summoning_minigame()
 	canvas.show()
